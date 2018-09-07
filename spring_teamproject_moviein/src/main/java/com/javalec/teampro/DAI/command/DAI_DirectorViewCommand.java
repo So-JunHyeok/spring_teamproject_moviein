@@ -20,7 +20,7 @@ public class DAI_DirectorViewCommand implements DAI_Command {
 		
 		DAI_Dao dao = new DAI_Dao();
 		DAI_Dto dto = dao.directorView(dAI_Id);
-		
+		System.out.println("테스트용테스트");
 		model.addAttribute("director_view",dto);
 		
 	}
