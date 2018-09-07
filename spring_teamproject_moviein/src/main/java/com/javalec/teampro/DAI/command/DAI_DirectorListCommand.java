@@ -14,7 +14,7 @@ public class DAI_DirectorListCommand implements DAI_Command{
 		
 		DAI_Dao dao = new DAI_Dao();
 		ArrayList<DAI_Dto> dtos= dao.DAI_dlist();
-		
+		System.out.println("으어어엉");
 		model.addAttribute("director_list",dtos);
 		
 	}
