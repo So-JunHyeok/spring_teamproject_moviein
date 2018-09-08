@@ -6,4 +6,5 @@ public interface DAI_Command {
 	
 	void execute(Model model);
 	// asdasdasdasdasdasdasdhaosdhaoifhaasdsad
+	//ㄴㅇㄴㅇㄴㅇㄴㅇ
 }
