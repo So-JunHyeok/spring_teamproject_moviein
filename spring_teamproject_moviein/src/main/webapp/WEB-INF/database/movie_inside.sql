@@ -6,6 +6,7 @@ create table movie_introduction_present(
 	bRelease varchar2(10) not null,
 	bDate date default sysdate,
 	safeFile varchar2(2000),
+	safeFile2 varchar2(2000),
 	bstar number(10),
 	bHit number(4) default 0
 );

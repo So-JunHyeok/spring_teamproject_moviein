@@ -75,12 +75,13 @@ float: right;
 }
 .lee-co{
   width: 1101px;
-  border-bottom: 2px solid #7e9bdb;
+  border-bottom: 2px solid black;
   margin-top:50px;
   
 }
 .lee-co h4{
   margin-left: 20px;
+  margin-bottom:20px;
 }
 .lee-co i {
   float: right;

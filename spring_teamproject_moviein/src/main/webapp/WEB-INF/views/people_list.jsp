@@ -17,10 +17,8 @@
 <title>Insert title here</title>
 </head>
 <body>
-
-
-    <jsp:include page="header.jsp"></jsp:include>
-    
+	<!-- Header -->
+ <jsp:include page="header.jsp"></jsp:include>
   <div id="wrap" class="people-container">
 
     <div class="people-left">
@@ -38,15 +36,9 @@
               <li><a href="people_view?dAI_Id=${dto.dAI_Id}"><img src="<c:url value='/upload_test/${dto.safeFile.substring(15)}'/>" alt="이미지"></a></li>
             </c:forEach>
             </ul>
-         
-             <c:forEach var="ppagenum" begin="${PStartPage}" end="${PEndPage}">
-              <span><a href="people_list?PpageNum=${ppagenum}&DpageNum=${DPageNum}">${ppagenum}</a></span>
-			 </c:forEach>
-            
           </div>
       </div>
         </div>
-   
       <div class="swiper-container">
         <div class="lee-co">
           <h4>감독 인터뷰<a href="dir_write_view"><i class="fas fa-pen"></i></a></h4>
@@ -59,20 +51,15 @@
              	<li><a href="director_view?dAI_Id=${dtos.dAI_Id}"><img src="<c:url value='/upload_test/${dtos.safeFile.substring(15)}'/>" alt="이미지"></a></li>
     	      </c:forEach>
               </ul>
-                 <c:forEach var="dpagenum" begin="${DStartPage}" end="${DEndPage}">
-              <span><a href="people_list?DpageNum=${dpagenum}&PpageNum=${PPageNum}">${dpagenum}</a></span>
-			 </c:forEach>
             </div>
           </div>
         </div>
-        
     <script>
     </script>
   </div>
 </div>
 </div>
-
-  <jsp:include page="footer.jsp"></jsp:include>
+		<jsp:include page="footer.jsp"></jsp:include>
 
 </body>
 </html>

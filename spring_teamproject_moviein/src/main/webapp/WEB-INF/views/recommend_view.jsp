@@ -33,12 +33,46 @@
 						src="<c:url value='/upload_test/${recommend_view.safeFile2.substring(15)}'/>"
 						type="video/webm"></video>
 					${recommend_view.dAI_Content}
-
+		
 				</div>
+				<div class="introduction-hit">
+    	<i class="fas fa-shoe-prints" style="margin-right: 10px;"></i>
+    		${idccontent_view.dHit}
+    	</div>
+    
+    	<div class="introduction-info">
+    		<div class="modify-btn">	
+    			<a href="recommend_list">목록</a>
+    		</div>
+    		<div class="modify-btn">
+    			<a href="rec_delete?dAI_Id=${recommend_view.dAI_Id }">삭제</a>
+    		</div>
+    		<div class="modify-btn">
+    			<a href="recommend_modify?dAI_Id=${recommend_view.dAI_Id }">수정</a>
+    		</div>		
+    	</div>
+
+
+
+          <div class="reply-box">
+            <div class="reply-head">내 평점</div>
+            <div class="reply-rating">
+              별점: ☆☆☆☆☆
+            </div>
+            <div class="reply-write">
+              <div class="reply-text">
+                <textarea name="reply-content" cols="100" rows="7" style="resize: none" placeholder="내용을 입력하세요."></textarea>
+              </div>
+              <div class="reply-btn">
+                <input class="contents-btn" type="button" name="" value="등록">
+              </div>
+            </div>
+          </div>
+
+          <div class="reply-view">
+            댓글 박스
+          </div>
 			</div>
-			<a href="recommend_modify?dAI_Id=${recommend_view.dAI_Id }">수정</a> <a
-				href="recommend_list">목록보기</a> &nbsp;&nbsp; <a
-				href="rec_delete?dAI_Id=${recommend_view.dAI_Id }">삭제</a>
 		</div>
 	</div>
 	<jsp:include page="footer.jsp"></jsp:include>

@@ -57,7 +57,7 @@
 							<tr>
 								<td><input type="hidden" name="dAI_Id" value="${people_view.dAI_Id}">
 								<input type="text" name="dAI_Title" size="144"
-									vlaue="${people_view.dAI_Content}" required></td>
+									value="${people_view.dAI_Content}" required></td>
 							</tr>
 							<tr>
 								<th>내용</th>

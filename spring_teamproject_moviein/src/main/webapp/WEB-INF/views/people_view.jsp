@@ -15,30 +15,25 @@
 		<div class="people-left"></div>
 		<div class="people-center">
 			<div class="view-title">
-				<h3>${people_view.dAI_Title }</h3>
-				<h4>
-					2018-8-18 | <a href="">박은영 기자</a>
-				</h4>
+				<h3>${people_view.dAI_Title}</h3>
 			</div>
 			<div class="view-content">
-				<h3>[무비스트=박은영 기자]</h3>
-				<div class="view-content-img">
-					<img src="resources/img/p1-1.jpg" alt="">
-				</div>
 				<div class="view-content-p">
-				<video width="960" height="480" controls> <source
-						src="<c:url value='/upload_test/${people_view.safeFile2.substring(15)}'/>"
-						type="video/ogg"> <source
-						src="<c:url value='/upload_test/${people_view.safeFile2.substring(15)}'/>"
-						type="video/mp4"> <source
-						src="<c:url value='/upload_test/${people_view.safeFile2.substring(15)}'/>"
-						type="video/webm"></video>
 				${people_view.dAI_Content }
 				</div>
 			</div>
-			<a href="people_modify?dAI_Id=${people_view.dAI_Id }">수정</a>
-			&nbsp;&nbsp; <a href="people_list">목록보기</a> &nbsp;&nbsp; <a
-				href="peo_delete?dAI_Id=${people_view.dAI_Id }">삭제</a>
+			
+			<div class="introduction-info">
+    		<div class="modify-btn">	
+    			<a href="people_list">목록</a>
+    		</div>
+    		<div class="modify-btn">
+    			<a href="peo_delete?dAI_Id=${people_view.dAI_Id }">삭제</a>
+    		</div>
+    		<div class="modify-btn">
+    			<a href="people_modify?dAI_Id=${people_view.dAI_Id }">수정</a>
+    		</div>		
+    	</div>
 		</div>
 		<div class="people-right"></div>
 

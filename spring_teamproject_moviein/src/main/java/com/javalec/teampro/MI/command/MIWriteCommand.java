@@ -21,9 +21,10 @@ public class MIWriteCommand implements MICommand {
 		String bContent = request.getParameter("bContent");
 		String bRelease = request.getParameter("bRelease");
 		String safeFile = (String) map.get("safeFile");
+		String safeFile2 = (String) map.get("safeFile2");
 		
 		MIDao dao = new MIDao();
-		dao.MIwriter1(bTitle, bContent, bRelease, safeFile );
+		dao.MIwriter1(bTitle, bContent, bRelease, safeFile,safeFile2);
 		
 	}
 

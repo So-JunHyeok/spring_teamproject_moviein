@@ -57,17 +57,18 @@ public class MIidcDao {
 		// return dtos;    
 	}
 
-	public void MIidcwriter1(final String dTitle, final String dContent, final String dRelease,final String safeFile) {
+	public void MIidcwriter1(final String dTitle, final String dContent, final String dRelease,final String safeFile,final String safeFile2) {
 		template.update(new PreparedStatementCreator() {
 			
 			@Override
 			public PreparedStatement createPreparedStatement(Connection con) throws SQLException {
-				String sql ="insert into movie_introduction_board (dNum, dTitle, dContent, dRelease, safeFile) values (movie_introduction_board_seq.nextval, ?,?,?,?)";
+				String sql ="insert into movie_introduction_board (dNum, dTitle, dContent, dRelease, safeFile,safeFile2) values (movie_introduction_board_seq.nextval, ?,?,?,?,?)";
 				PreparedStatement pstmt = con.prepareStatement(sql);
 				pstmt.setString(1,dTitle);
 				pstmt.setString(2,dContent);
 				pstmt.setString(3,dRelease);
 				pstmt.setString(4,safeFile);
+				pstmt.setString(5,safeFile2);
 
 				
 				return pstmt;

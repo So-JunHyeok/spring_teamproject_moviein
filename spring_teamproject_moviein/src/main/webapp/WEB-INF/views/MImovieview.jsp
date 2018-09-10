@@ -40,8 +40,13 @@
           		${content_view.bTitle}
             </div>
            <div class="movie-trailer">
-            <iframe width="100%" height="368" src="https://www.youtube.com/embed/XyEJxOfKaCw" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-            
+					<video width="960" height="480" controls> <source
+						src="<c:url value='/upload_test/${content_view.safeFile2.substring(15)}'/>"
+						type="video/ogg"> <source
+						src="<c:url value='/upload_test/${content_view.safeFile2.substring(15)}'/>"
+						type="video/mp4"> <source
+						src="<c:url value='/upload_test/${content_view.safeFile2.substring(15)}'/>"
+						type="video/webm"></video>            
           </div>
             <div class="aboutmovie">  <!-- 영화 소개 -->
               ${content_view.bContent}

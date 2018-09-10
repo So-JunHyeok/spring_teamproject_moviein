@@ -21,9 +21,10 @@ public class MIidcWriteCommand implements MIidcCommand {
 		String dContent = request.getParameter("dContent");
 		String dRelease = request.getParameter("dRelease");
 		String safeFile = (String) map.get("safeFile");
+		String safeFile2 = (String) map.get("safeFile2");
 		
 		MIidcDao dao = new MIidcDao();
-		dao.MIidcwriter1(dTitle, dContent, dRelease,safeFile);
+		dao.MIidcwriter1(dTitle, dContent, dRelease,safeFile,safeFile2);
 		
 	}
 
