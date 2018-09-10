@@ -110,4 +110,21 @@ public class MIDao {
 		});
 		
 	}
+	public void MIwriter1(final String bTitle, final String bContent,final String bRelease,final String safeFile) {
+		template.update(new PreparedStatementCreator() {
+			
+			@Override
+			public PreparedStatement createPreparedStatement(Connection con) throws SQLException {
+				String sql ="insert into movie_introduction_present (bNum, bTitle, bContent, bRelease, safeFile) values (movie_introduction_present_seq.nextval, ?,?,?,?)";
+				PreparedStatement pstmt = con.prepareStatement(sql);
+				pstmt.setString(1,bTitle);
+				pstmt.setString(2,bContent);
+				pstmt.setString(3,bRelease);
+				pstmt.setString(4,safeFile);
+
+				
+				return pstmt;
+			}
+		});
+	}
 }
