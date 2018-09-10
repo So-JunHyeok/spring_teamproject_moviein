@@ -7,6 +7,7 @@
     <title>Movie inside 영화</title>
     <script src="resources/js/jquery-3.3.1.min.js"></script>
     <script src="resources/js/swiper.min.js"></script>
+    <script type="text/javascript" src="resources/js/application.js"></script>
     <link rel="stylesheet" href="resources/css/stylelist.css">
     <link rel="stylesheet" href="resources/css/swiper.min.css">
     <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic" rel="stylesheet">
@@ -20,8 +21,7 @@
 
 <div id="wrap">
 <!-- Header -->
-  
-  	<jsp:include page="header.jsp"></jsp:include>
+ <jsp:include page="header.jsp"></jsp:include>
 
 
     <!--Contents -->
@@ -33,7 +33,7 @@
 					<div class="swiper-slide">
 					<div class="cover">
 						<!-- 리스트만큼 영화 포스터를 반복한다. -->
-							<a href="MImovieview?bNum=${dto.bNum}"><img class="main-imgbox" src="<c:url value='/upload_test/${dto.safeFile.substring(15)}'/>"> </a>
+							<a href="MImovieview?bNum=${dto.bNum}"><img class="main-imgbox" src="resources/img/love.jpg"></a>
 					</div>
 						<div class="info-title">
 							<a class="movie-linkbox" href="MImovieview?bNum=${dto.bNum}">${dto.bTitle}</a>
@@ -55,8 +55,8 @@
         <div class="main-list2">
 		<c:forEach items="${idcmovielist}" var="dto">
           <div class="info-list">
-            <div class="movie_img">
-              <a href="MIidcmovieview?dNum=${dto.dNum}"><img class="main-img" src="<c:url value='/upload_test/${dto.safeFile.substring(15)}'/>"></a>
+            <div>
+              <a href="MIidcmovieview?dNum=${dto.dNum}"><img class="main-img" src="resources/img/delma.jpg"></a>
             </div>
             <div class="info-title">
               <a class="movie-link" href="MIidcmovieview?dNum=${dto.dNum}">${dto.dTitle}</a>
@@ -79,14 +79,13 @@
 
         <div class="content-pag">
           <div class="paging">
-     		test : st ${StartPage} // en ${EndPage}
-     		
             <ul>
-            <c:forEach var="pagenum" begin="${StartPage}" end="${EndPage}">
-              <li><a href="MImovielist?pageNum=${pagenum}">${pagenum}</a></li>
-			 </c:forEach>
+              <li><a href="#">1</a></li>
+              <li><a href="#">2</a></li>
+              <li><a href="#">3</a></li>
+              <li><a href="#">4</a></li>
+              <li><a href="#">5</a></li>
             </ul>
-           
           </div>
         </div>
       </div>
@@ -94,8 +93,7 @@
     <!--Contents -->
 
 
-    <jsp:include page="footer.jsp"></jsp:include>
-    
+   <jsp:include page="footer.jsp"></jsp:include>
   </div>
   </body>
 
@@ -112,5 +110,4 @@
     </script>
     <!-- Initialize Swiper -->
 
-  
 </html>

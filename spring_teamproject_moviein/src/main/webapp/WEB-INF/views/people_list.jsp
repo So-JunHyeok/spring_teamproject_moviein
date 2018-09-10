@@ -17,10 +17,8 @@
 <title>Insert title here</title>
 </head>
 <body>
-
-
-    <jsp:include page="header.jsp"></jsp:include>
-    
+	<!-- Header -->
+ <jsp:include page="header.jsp"></jsp:include>
   <div id="wrap" class="people-container">
 
     <div class="people-left">
@@ -61,8 +59,7 @@
   </div>
 </div>
 </div>
-
-  <jsp:include page="footer.jsp"></jsp:include>
+		<jsp:include page="footer.jsp"></jsp:include>
 
 </body>
 </html>

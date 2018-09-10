@@ -21,6 +21,5 @@ public class DAI_PeopleViewCommand implements DAI_Command{
 		DAI_Dto dto = dao.peopleView(dAI_Id);
 		
 		model.addAttribute("people_view",dto);
-		
 	}
 }

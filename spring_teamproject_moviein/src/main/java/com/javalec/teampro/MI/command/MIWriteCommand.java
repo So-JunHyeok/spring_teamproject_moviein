@@ -1,6 +1,6 @@
 package com.javalec.teampro.MI.command;
-import java.util.Map;
 
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -20,10 +20,9 @@ public class MIWriteCommand implements MICommand {
 		String bTitle = request.getParameter("bTitle");
 		String bContent = request.getParameter("bContent");
 		String bRelease = request.getParameter("bRelease");
-		String safeFile = (String) map.get("safeFile");
 		
 		MIDao dao = new MIDao();
-		dao.MIwriter1(bTitle, bContent, bRelease, safeFile );
+		dao.writer1(bTitle, bContent, bRelease);
 		
 	}
 

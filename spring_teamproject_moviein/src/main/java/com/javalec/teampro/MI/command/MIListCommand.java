@@ -2,7 +2,6 @@ package com.javalec.teampro.MI.command;
 
 import java.util.ArrayList;
 
-
 import org.springframework.ui.Model;
 
 import com.javalec.teampro.MI.dao.MIDao;
@@ -15,6 +14,7 @@ public class MIListCommand implements MICommand {
 	public void execute(Model model) {
 
 		MIDao dao = new MIDao();
+		
 		ArrayList<MIDto> dtos = dao.movielist();
 		model.addAttribute("movielist", dtos);
 		

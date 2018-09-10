@@ -20,9 +20,10 @@ public class DAI_DirectorWriteCommand implements DAI_Command {
 		String dAI_Content = request.getParameter("dAI_Content");
 		String dAI_Name = request.getParameter("dAI_Name");
 		String safeFile = (String)map.get("safeFile");
+		String safeFile2 = (String)map.get("safeFile2");
 		
 		DAI_Dao dao = new DAI_Dao();
-		dao.requestupload3(dAI_Title,dAI_Content,dAI_Name,safeFile);
+		dao.requestupload3(dAI_Title,dAI_Content,dAI_Name,safeFile,safeFile2);
 	}
 
 }

@@ -10,7 +10,6 @@ import com.javalec.teampro.DAI.dto.DAI_Dto;
 public class DAI_PeopleListCommand implements DAI_Command{
 	@Override
 	public void execute(Model model) {
-		// TODO Auto-generated method stub
 		
 		DAI_Dao dao = new DAI_Dao();
 		ArrayList<DAI_Dto>dtos = dao.DAI_plist();

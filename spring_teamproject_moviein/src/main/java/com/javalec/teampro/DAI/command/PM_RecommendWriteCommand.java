@@ -5,7 +5,6 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.ui.Model;
-import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import com.javalec.teampro.DAI.dao.DAI_Dao;
 
@@ -16,7 +15,6 @@ public class PM_RecommendWriteCommand implements DAI_Command {
 		// TODO Auto-generated method stub
 		Map<String, Object>map = model.asMap();
 		HttpServletRequest request = (HttpServletRequest) map.get("request");
-		MultipartHttpServletRequest mtfRequest = (MultipartHttpServletRequest)map.get("mtfRequest");
 		
 		String dAI_Title = request.getParameter("dAI_Title");
 		String dAI_Content = request.getParameter("dAI_Content");

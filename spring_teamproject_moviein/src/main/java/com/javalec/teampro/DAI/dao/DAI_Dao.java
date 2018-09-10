@@ -1,7 +1,6 @@
 package com.javalec.teampro.DAI.dao;
 
 import java.sql.Connection;
-
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -11,6 +10,7 @@ import javax.sql.DataSource;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.PreparedStatementCreator;
+import org.springframework.jdbc.core.PreparedStatementSetter;
 
 import com.javalec.teampro.DAI.dto.DAI_Dto;
 import com.javalec.teampro.Util.Constant;
@@ -20,7 +20,7 @@ public class DAI_Dao {
 	DataSource dataSource;
 	
 	JdbcTemplate template = null;
-	
+
 	
 	public DAI_Dao() {
 		template = Constant.template;
@@ -32,16 +32,27 @@ public class DAI_Dao {
 	}
 	public DAI_Dto peopleView(String dAI_Id) {
 		String sql = "select * from DAI_people_board where dAI_Id = "+dAI_Id;
-		try {
-			return template.queryForObject(sql, new BeanPropertyRowMapper<DAI_Dto>(DAI_Dto.class));
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		return null;
+		return template.queryForObject(sql, new BeanPropertyRowMapper<DAI_Dto>(DAI_Dto.class));
+		
 	}
 	public DAI_Dto directorView(String dAI_Id) {
 		String sql = "select * from DAI_director_board where dAI_Id = "+dAI_Id;
 		return template.queryForObject(sql, new BeanPropertyRowMapper<DAI_Dto>(DAI_Dto.class));
+	}
+	public DAI_Dto peopleModifyView(String dAI_Id) {
+		String sql = "select * from DAI_people_board where dAI_Id = "+dAI_Id;
+		return template.queryForObject(sql, new BeanPropertyRowMapper<DAI_Dto>(DAI_Dto.class));
+		
+	}
+	public DAI_Dto recommendModifyView(String dAI_Id) {
+		String sql = "select * from PM_recommend_board where dAI_Id = "+dAI_Id;
+		return template.queryForObject(sql, new BeanPropertyRowMapper<DAI_Dto>(DAI_Dto.class));
+		
+	}
+	public DAI_Dto directorModifyView(String dAI_Id) {
+		String sql = "select * from DAI_director_board where dAI_Id = "+dAI_Id;
+		return template.queryForObject(sql, new BeanPropertyRowMapper<DAI_Dto>(DAI_Dto.class));
+		
 	}
 	
 	public ArrayList<DAI_Dto> DAI_dlist() {
@@ -61,7 +72,6 @@ public class DAI_Dao {
 	
 	public void requestupload1(final String dAI_Title,final String dAI_Content,final String dAI_Name,final String safeFile) {
 		template.update(new PreparedStatementCreator() {
-			
 			@Override
 			public PreparedStatement createPreparedStatement(Connection con) throws SQLException {
 				String sql ="insert into PM_recommend_board (dAI_Id,dAI_Title, dAI_Content,dAI_Name,safeFile) values (PM_recommend_board_seq.nextval, ?,?,?,?)";
@@ -87,27 +97,101 @@ public class DAI_Dao {
 				pstmt.setString(2,dAI_Content);
 				pstmt.setString(3,dAI_Name);
 				pstmt.setString(4,safeFile);
-
 				
 				return pstmt;
 			}
 		});
 	}
 
-	public void requestupload3(final String dAI_Title, final String dAI_Content, final String dAI_Name, final String safeFile) {
+	public void requestupload3(final String dAI_Title, final String dAI_Content, final String dAI_Name, final String safeFile,final String safeFile2) {
 		template.update(new PreparedStatementCreator() {
 			
 			@Override
 			public PreparedStatement createPreparedStatement(Connection con) throws SQLException {
-				String sql ="insert into DAI_director_board (dAI_Id,dAI_Title, dAI_Content,dAI_Name,safeFile) values (DAI_director_board_seq.nextval, ?,?,?,?)";
+				String sql ="insert into DAI_director_board (dAI_Id,dAI_Title, dAI_Content,dAI_Name,safeFile,safeFile2) values (DAI_director_board_seq.nextval, ?,?,?,?,?)";
 				PreparedStatement pstmt = con.prepareStatement(sql);
 				pstmt.setString(1,dAI_Title);
 				pstmt.setString(2,dAI_Content);
 				pstmt.setString(3,dAI_Name);
 				pstmt.setString(4,safeFile);
+				pstmt.setString(5,safeFile2);
 				
 				return pstmt;
 			}
 		});
 	}
+	public void peo_delete (final String dAI_Id) {
+		String sql = "delete from DAI_people_board where dAI_Id=?";
+		
+		template.update(sql,new PreparedStatementSetter() {
+
+			@Override
+			public void setValues(PreparedStatement ps) throws SQLException {
+				ps.setString(1, dAI_Id);
+			}
+		});
+	}
+	public void dir_delete (final String dAI_Id) {
+		String sql = "delete from DAI_director_board where dAI_Id=?";
+		
+		template.update(sql,new PreparedStatementSetter() {
+
+			@Override
+			public void setValues(PreparedStatement ps) throws SQLException {
+				ps.setString(1, dAI_Id);
+			}
+		});
+	}
+	public void rec_delete (final String dAI_Id) {
+		String sql = "delete from PM_recommend_board where dAI_Id=?";
+		
+		template.update(sql,new PreparedStatementSetter() {
+
+			@Override
+			public void setValues(PreparedStatement ps) throws SQLException {
+				ps.setString(1, dAI_Id);
+			}
+		});
+	}
+	public void people_modify(final String dAI_Title, final String dAI_Content,final String dAI_Id) {
+		String sql = "update DAI_people_board set dAI_Title=?, dAI_Content=? where dAI_Id=?";
+		
+		template.update(sql, new PreparedStatementSetter() {
+			
+			@Override
+			public void setValues(PreparedStatement ps) throws SQLException {
+				ps.setString(1, dAI_Title);
+				ps.setString(2, dAI_Content);
+				ps.setInt(3, Integer.parseInt(dAI_Id));
+			}
+		});
+	}
+		public void recommend_modify(final String dAI_Title, final String dAI_Content,final String dAI_Id) {
+			String sql = "update PM_recommend_board set dAI_Title=?, dAI_Content=? where dAI_Id=?";
+			
+			template.update(sql, new PreparedStatementSetter() {
+				
+				@Override
+				public void setValues(PreparedStatement ps) throws SQLException {
+					ps.setString(1, dAI_Title);
+					ps.setString(2, dAI_Content);
+					ps.setInt(3, Integer.parseInt(dAI_Id));
+				}
+			});
+	}
+		public void director_modify(final String dAI_Title, final String dAI_Content,final String dAI_Id) {
+			String sql = "update DAI_director_board set dAI_Title=?, dAI_Content=? where dAI_Id=?";
+			
+			template.update(sql, new PreparedStatementSetter() {
+				
+				@Override
+				public void setValues(PreparedStatement ps) throws SQLException {
+					ps.setString(1, dAI_Title);
+					ps.setString(2, dAI_Content);
+					ps.setInt(3, Integer.parseInt(dAI_Id));
+				}
+			});
+		}
+	
+	
 }

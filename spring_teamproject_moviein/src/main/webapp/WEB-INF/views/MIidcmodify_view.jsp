@@ -6,15 +6,9 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <script src="resources/js/jquery-3.3.1.min.js"></script>
+<script type="text/javascript" src="resources/js/application.js"></script>
 <script src="//cdn.ckeditor.com/4.7.1/full/ckeditor.js"></script>
 <link rel="stylesheet" href="resources/css/idcwriter1.css">
-<link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet">
-<!-- 로그인 -->
-<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
-<!-- 메뉴바 -->
-<link href="https://fonts.googleapis.com/css?family=Jua" rel="stylesheet">
-<!-- 로그인,회원가입 제목 -->
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
 <script>
     $(function(){
 
@@ -39,12 +33,11 @@
         });
 
     });
-
 </script>
 </head>
 <body>
 	<div class="wrap">
-  <jsp:include page="header.jsp"></jsp:include>
+		<jsp:include page="header.jsp"></jsp:include>
 
 		<div class="contents">
 			<div class="container">
@@ -87,7 +80,7 @@
 
 
 
-  <jsp:include page="footer.jsp"></jsp:include>
+		<jsp:include page="footer.jsp"></jsp:include>
 	</div>
 </body>
 </html>

@@ -1,6 +1,6 @@
 package com.javalec.teampro.MI.command;
-import java.util.Map;
 
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -20,10 +20,9 @@ public class MIidcWriteCommand implements MIidcCommand {
 		String dTitle = request.getParameter("dTitle");
 		String dContent = request.getParameter("dContent");
 		String dRelease = request.getParameter("dRelease");
-		String safeFile = (String) map.get("safeFile");
 		
 		MIidcDao dao = new MIidcDao();
-		dao.MIidcwriter1(dTitle, dContent, dRelease, safeFile);
+		dao.idcwriter1(dTitle, dContent, dRelease);
 		
 	}
 

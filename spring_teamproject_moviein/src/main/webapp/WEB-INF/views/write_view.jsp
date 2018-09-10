@@ -1,58 +1,84 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ page session="false"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <html>
 <head>
-<title>게시판</title>
-<script type="text/javascript"
-	src="http://code.jquery.com/jquery-1.11.3.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>게시글 쓰기</title>
+<link rel="stylesheet" href="resources/css/writer1.css">
+<script src="resources/js/jquery-3.3.1.min.js"></script>
+<script type="text/javascript" src="resources/js/application.js"></script>
 <script src="//cdn.ckeditor.com/4.7.1/full/ckeditor.js"></script>
+<link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+<script>
+    $(function(){
 
-<script type="text/javascript">
-	$(document).ready(function() {
-		CKEDITOR.replace('content', {//해당 이름으로 된 textarea에 에디터를 적용
-			width : '100%',
-			height : '400px',
-			filebrowserImageUploadUrl : '/community/imageUpload' //여기 경로로 파일을 전달하여 업로드 시킨다.
-		});
-		CKEDITOR.on('dialogDefinition', function(ev) {
-			var dialogName = ev.data.name;
-			var dialogDefinition = ev.data.definition;
+        CKEDITOR.replace( 'contents', {//해당 이름으로 된 textarea에 에디터를 적용
+            width:'100%',
+            height:'400px',
+            filebrowserImageUploadUrl: '/community/imageUpload' //여기 경로로 파일을 전달하여 업로드 시킨다.
+        });
 
-			switch (dialogName) {
-			case 'image': //Image Properties dialog
-				//dialogDefinition.removeContents('info');
-				dialogDefinition.removeContents('Link');
-				dialogDefinition.removeContents('advanced');
-				break;
-			}
-		});
-	});
+
+        CKEDITOR.on('dialogDefinition', function( ev ){
+            var dialogName = ev.data.name;
+            var dialogDefinition = ev.data.definition;
+
+            switch (dialogName) {
+                case 'image': //Image Properties dialog
+                    //dialogDefinition.removeContents('info'd);
+                    dialogDefinition.removeContents('Link');
+                    dialogDefinition.removeContents('advanced');
+                    break;
+            }
+        });
+
+    });
 </script>
 </head>
-<body>
-  <jsp:include page="header.jsp"></jsp:include>
 
-	<input type="hidden" id="board_id" name="board_id"
-		value="${boardView.id}" />
-	<div align="center">
-		<form name="fileForm" action="requestupload1" method="post" enctype="multipart/form-data">
-			<table width="1200px">
-				<tr>
-					<td>제목: <input type="text" id="subject" name="dAI_Title" style="width: 600px;" placeholder="제목" /> 
-						작성자: <input type="text" id="writer" name="dAI_Name" style="width: 170px;" maxlength="10" placeholder="작성자" /> 
-						<input type="submit" name="업로드" value="게시글 쓰기"> 
-					</td>
-				</tr>
-				<tr>
-					<td><textarea name="dAI_Content" id="content" rows="10" cols="80"></textarea>
-					<input type="file" name="safeFile" />
-					</td>
-				</tr>
-			</table>
-		</form>
+
+
+<body>
+	<div class="wrap">
+		<jsp:include page="header.jsp"></jsp:include>
+
+		<div class="contents">
+			<div class="container">
+				<div class="writrerbox">
+					<form action="requestupload1" method="post" id="insertBoardFrm"
+						enctype="multipart/form-data">
+						<!-- <form action="writer1" method="post"> -->
+						<table>
+							<tr>
+								<th>제목</th>
+							</tr>
+							<tr>
+								<td><input type="text" name="dAI_Title" size="144"
+									placeholder="제목 입력" required></td>
+							</tr>
+							<tr>
+								<th>내용</th>
+							</tr>
+							<tr>
+								<td><textarea rows="20" cols="103" name="dAI_Content"
+										id="contents" placeholder="내용 입력" required></textarea></td>
+							</tr>
+						</table>
+						<div class="writer1-btn">
+						<input type="file" name="safeFile" />
+						<input type="file" name="safeFile2" />
+							<input type="submit" value="작성"> 
+							<input type="button" value="취소" onclick="location.href='recommend_list'">
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+
+
+		<jsp:include page="footer.jsp"></jsp:include>
 	</div>
-	  <jsp:include page="footer.jsp"></jsp:include>
 </body>
 </html>

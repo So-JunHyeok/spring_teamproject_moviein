@@ -21,6 +21,6 @@ public class DAI_PeopleWriteCommand implements DAI_Command{
 		String safeFile = (String)map.get("safeFile");
 		
 		DAI_Dao dao = new DAI_Dao();
-		dao.requestupload2(dAI_Title, dAI_Content, dAI_Name, safeFile);
+		dao.requestupload2(dAI_Title,dAI_Content,dAI_Name,safeFile);
 	}
 }

@@ -8,6 +8,7 @@ public class DAI_Dto {
 	String dAI_Title;
 	String dAI_Content;
 	String safeFile;
+	String safeFile2;
 	Timestamp dAI_Date;
 	int dAI_Hit;
 	
@@ -61,6 +62,14 @@ public class DAI_Dto {
 		this.safeFile = safeFile;
 	}
 
+	public String getSafeFile2() {
+		return safeFile2;
+	}
+
+	public void setSafeFile2(String safeFile2) {
+		this.safeFile2 = safeFile2;
+	}
+
 
 	public Timestamp getdAI_Date() {
 		return dAI_Date;
@@ -87,13 +96,14 @@ public class DAI_Dto {
 	}
 
 
-	public DAI_Dto(int dAI_Id, String dAI_Name, String dAI_Title, String dAI_Content, String safeFile,
+	public DAI_Dto(int dAI_Id, String dAI_Name, String dAI_Title, String dAI_Content, String safeFile,String safeFile2,
 			Timestamp dAI_Date, int dAI_Hit) {
 		this.dAI_Id = dAI_Id;
 		this.dAI_Name = dAI_Name;
 		this.dAI_Title = dAI_Title;
 		this.dAI_Content = dAI_Content;
 		this.safeFile = safeFile;
+		this.safeFile2 = safeFile2;
 		this.dAI_Date = dAI_Date;
 		this.dAI_Hit = dAI_Hit;
 	}

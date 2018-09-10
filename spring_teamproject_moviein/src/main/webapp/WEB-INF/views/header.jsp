@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,8 +14,21 @@
  <script src="resources/js/jquery-3.3.1.min.js"></script>
  <script src="resources/js/jquery.bpopup.min.js"></script>
  <script type="text/javascript" src="resources/js/application.js"></script>
+ <script src="resources/js/join.js"></script>
+ <script src="resources/js/daumpost.js"></script>
+ <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
 </head>
 <script>
+function gotojoin(){
+	  
+    bpopup=$('.join').bPopup({
+        fadeSpeed: 'slow', //can be a string ('slow'/'fast') or int
+        followSpeed: 1000, //can be a string ('slow'/'fast') or int
+        modalColor: '#F2F2F2'
+        
+    });
+ }
+
 // 로그인
 $(document).ready(function(){
   var bpopup='';
@@ -29,14 +43,26 @@ $(document).ready(function(){
     })
   })
   // 검색창
-  $('.search-contents').find('input').on('focus', () => {
+  $('.search-contents').find('input').on('focus', function() {
     $('.search-contents').find('input').closest('div').animate({width : 300}, 500);
     $('.search-contents').find('input').closest('div').find('i').css('color', 'black');
   })
 
-  $('.search-contents').find('input').on('blur', () => {
+  $('.search-contents').find('input').on('blur', function() {
     $('.search-contents').find('input').closest('div').animate({width : 200}, 500);
     $('.search-contents').find('input').closest('div').find('i').css('color', 'gray');
+  })
+  
+  $(".logout").find('a').on("click", function(e) {
+	  $.ajax({
+		  type: "GET",
+		  url: "logout",
+		  success: function(data) {
+			  alert("로그아웃 되었습니다.");
+			  var ctx=window.location.pathname.substring(0, window.location.pathname.indexOf("/MImovielist",2));
+ 				window.location.href=ctx + "/MImovielist";
+		  }
+	  })
   })
 })
 // 회원가입
@@ -104,18 +130,22 @@ $(document).ready(function(){
           <div class="menu">
             <a href="people_list">Interview</a>
           </div>
+          <c:if test="${sessionScope.id == null}">
           <div class="login">
             <a href="#" ><i class="fas fa-sign-in-alt"></i></a>
           </div>
           <div class="sign-up">
             <a href="#"><i class="fas fa-user-plus"></i></a>
           </div>
+          </c:if>
+          <c:if test="${sessionScope.id != null}">
           <div class="logout">
             <a href="#"><i class="fas fa-sign-out-alt"></i></a>
           </div>
           <div class="information">
             <a href="RSinfor"><i class="fas fa-address-card"></i></a>
           </div>
+          </c:if>
         </div>
       </div>
     </div>
@@ -124,7 +154,6 @@ $(document).ready(function(){
 <section>
     <div class="login1" style="display:none">
 
-        <form class="#">
         <div class="login-container">
 
         <div class="login-box">
@@ -132,27 +161,24 @@ $(document).ready(function(){
 
         <div class="login-idbox">
           <i class="fas fa-unlock"></i>
-          <input type="text" placeholder="ID">
+          <input type="text" id="lid" name="id" placeholder="ID">
         </div>
 
-        <div class="login-idbox">
+        <div class="login-pwbox">
           <i class="fas fa-key"></i>
-          <input type="password" placeholder="Password"
-          maxlegnth="16"><br>
+          <input type="password" id="lpassword" name="password" placeholder="Password" maxlength="16"><br>
         </div>
 
           <!-- 아직 회원가입 창으로 넘어갈 수 있는 링크는 지정 안 함 -->
         <div class="login-button">
-          <input class="btn1" type="submit" value="login" onclick="login">
-          <input class="btn1" type="submit" value="Sing-up" onclick="join">
+          <input class="login-btn" type="submit" value="login" onclick="login();">
+          <input class="login-btn" type="button" value="Sing-up" onclick="gotojoin();">
         </div>
     </div>
     </div>
-      </form>
     </div>
 
     <div class="join" style="display:none">
-    <form action="#">
     <div class="join-container">
 
     <div class= "join-box">
@@ -162,41 +188,59 @@ $(document).ready(function(){
     <!-- 아이디, 비밀번호, 비밀번호 재입력 -->
     <div class="join-box2">
       <i class="fas fa-id-card"></i>
-      <input type="text" id="id" placeholder="ID" size="14">
-      <input class="idcheck" type="button" value="중복체크">
+      <input type="text" id="id" name="id" placeholder="ID" size="40">
+     </div>
+     <div class="check-btn">
+      <input class="idcheck" type="button" value="중복체크" onclick="idcheck()">
     </div>
 
     <div class="join-box2">
       <i class="fas fa-key"></i>
       <input type="password" id="password"
-      placeholder="Password" maxlegnth="16" size="25">
+      name="password" placeholder="Password" maxlength="16" size="40">
     </div>
 
     <div class="join-box2">
       <i class="fas fa-key"></i>
-      <input type="password" id="repassword" placeholder="Repassword" size="25">
+      <input type="password" id="repassword" name="repassword" placeholder="Repassword" maxlength="16" size="40">
     </div>
 
     <!-- 이름, 생년월일 -->
     <div class="join-box2">
       <i class="fab fa-amilia"></i>
-      <input type="text" id="name" placeholder="Name" size="25"></td>
+      <input type="text" id="name"  name="name" placeholder="Name" size="40">
     </div>
 
-    <div class="join-box2">
+    <div class="birth-box">
       <i class="fas fa-birthday-cake"></i>
-      <input type="text" id="birth" placeholder="Birth" size="25">
+      <input type="date" id="birth" name="birth">
     </div>
-
+    
+	<div class="join-box2">
+		<i class="fas fa-home"></i>
+		<input type="text" id="postcode" placeholder="우편번호" size="40">
+	</div>
+	<div class="post-btn">
+		<input type="button" onclick="sample6_execDaumPostcode()" value="우편번호 찾기">
+	</div>
+	<div class="join-box2">
+		<i class="fas fa-home"></i>
+		<input type="text" id="address" placeholder="주소" size="40">
+	</div>
+	<div class="join-box2">
+		<i class="fas fa-home"></i>
+		<input type="text" id="address2" placeholder="상세주소" size="40">
+	</div>
+	
     <!-- 전화번호 및 이메일 주소 -->
     <div class="join-box2">
       <i class="fas fa-phone"></i>
-      <input type="text" id="phone" placeholder="Tel" size="25">
+      <input type="tel" id="tel" name="tel" placeholder="Tel" size="40">
     </div>
 
     <div class="join-box2">
       <i class="fas fa-envelope"></i>
-      <input type="text" id="email" placeholder="Email" size="25">
+      <input type="email" id="email" name="email" placeholder="Email" size="40">
     </div>
     <div class="join-box2">
       <input type="radio" id="man" name="gender" value="남자" checked>
@@ -205,9 +249,8 @@ $(document).ready(function(){
       <label for="woman">여자</label>
     </div>
     <div class="join-box2">
-      <!-- <textarea placeholder="좋아하는 장르를 입력하세요." cols="35" rows="5"></textarea> -->
-      <select name="genre">
-      	<option value="comedy">코미디</option>
+      <select name="genre" id="genre">
+      	<option value="comedy" selected>코미디</option>
       	<option value="romantic">멜로</option>
       	<option value="action">액션</option>
       	<option value="horror">호러</option>
@@ -215,19 +258,13 @@ $(document).ready(function(){
       	<option value="none">없음</option>
       </select>
     </div>
-
-
-    <!-- 가입 버튼 및 취소 버튼(합침) -->
-    <!-- 가입 버튼은 가입된 메인 페이지로 넘어가도록 함, 로그인이 정상적으로 되었다는 메시지 출력 -->
-    <!-- 취소 버튼은 메인 페이지로 이동하되, 처음과 같은 페이지여야 함 취소되었다는 메시지 출력-->
     <div class="join-box2">
-      <input class="btn2" type="submit" value="Sing-up" onclick="join">
-      <input class="btn2" type="reset" value="Cancle" onclick="cancle">
+      <input class="btn2" type="submit" value="Sign-Up" onclick="signup();" id="join-btn" disabled>
+      <input class="btn2" type="button" value="Cancle" onclick="location.href='MImovielist'">
     </div>
 
   </div>
   </div>
-  </form>
   </div>
   </section>
 </html>

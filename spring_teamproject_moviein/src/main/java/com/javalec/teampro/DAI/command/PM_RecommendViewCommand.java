@@ -24,5 +24,4 @@ public class PM_RecommendViewCommand implements DAI_Command {
 		model.addAttribute("recommend_view",dto);
 		
 	}
-
 }

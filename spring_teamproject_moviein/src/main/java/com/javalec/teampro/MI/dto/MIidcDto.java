@@ -8,7 +8,6 @@ public class MIidcDto {
 	private String dTitle;
 	private String dContent;
 	private String dRelease;
-	private String safeFile;
 	private Timestamp dDate;
 	int dHit;
 	
@@ -16,14 +15,13 @@ public class MIidcDto {
 		
 	}
 
-	public MIidcDto(int dNum, String dTitle, String dContent, String dRelease, int dHit, String safeFile) {
+	public MIidcDto(int dNum, String dTitle, String dContent, String dRelease, int dHit) {
 		super();
 		this.dNum = dNum;
 		this.dTitle = dTitle;
 		this.dContent = dContent;
 		this.dRelease = dRelease;
 		this.dHit = dHit;
-		this.safeFile = safeFile;
 	}
 
 	
@@ -74,14 +72,6 @@ public class MIidcDto {
 
 	public void setdHit(int dHit) {
 		this.dHit = dHit;
-	}
-
-	public String getSafeFile() {
-		return safeFile;
-	}
-
-	public void setSafeFile(String safeFile) {
-		this.safeFile = safeFile;
 	}
 
 	

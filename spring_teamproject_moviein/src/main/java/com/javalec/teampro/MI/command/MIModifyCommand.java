@@ -2,7 +2,6 @@ package com.javalec.teampro.MI.command;
 
 import java.util.Map;
 
-
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.ui.Model;
@@ -16,8 +15,6 @@ public class MIModifyCommand implements MICommand {
 
 		Map<String, Object> map = model.asMap();
 		HttpServletRequest request = (HttpServletRequest) map.get("request");
-		System.out.println(request);
-		
 		
 		String bNum = request.getParameter("bNum");
 		String bTitle = request.getParameter("bTitle");
