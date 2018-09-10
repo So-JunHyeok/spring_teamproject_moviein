@@ -9,6 +9,13 @@
 <script src="resources/js/jquery-3.3.1.min.js"></script>
 <script type="text/javascript" src="resources/js/application.js"></script>
 <script src="//cdn.ckeditor.com/4.7.1/full/ckeditor.js"></script>
+<link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet">
+<!-- 로그인 -->
+<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+<!-- 메뉴바 -->
+<link href="https://fonts.googleapis.com/css?family=Jua" rel="stylesheet">
+<!-- 로그인,회원가입 제목 -->
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
 <script>
     $(function(){
 
@@ -33,17 +40,21 @@
         });
 
     });
+   
 </script>
 </head>
+
+
+
 <body>
 	<div class="wrap">
-		<jsp:include page="header.jsp"></jsp:include>
+		  <jsp:include page="header.jsp"></jsp:include>
 
 
 		<div class="contents">
 			<div class="container">
 				<div class="writrerbox">
-					<form action="MIidcwriter1" method="post" id="insertBoardFrm" enctype="multipart/form-data">
+					<form name="fileForm" action="MIidcwriter1" method="post" id="insertBoardFrm" enctype="multipart/form-data">
 						<!-- <form action="writer1" method="post"> -->
 						<table>
 							<tr>
@@ -58,7 +69,7 @@
 							</tr>
 							<tr>
 								<td><textarea rows="20" cols="103" name="dContent"
-										id="dContent" placeholder="내용 입력" required></textarea></td>
+										id="content" placeholder="내용 입력" required></textarea></td>
 							</tr>
 							<tr>
 								<th>개봉일자</th>
@@ -70,6 +81,8 @@
 						</table>
 						<div class="writer1-btn">
 							<input type="submit" value="작성">
+							<label for="safeFile">업로드</label>
+							<input type="file" name="safeFile" id="safeFile" style="display:none"/>
 							 <input type="button" value="취소" onclick="location.href='MImovielist'">
 						</div>
 					</form>
@@ -77,8 +90,9 @@
 			</div>
 		</div>
 
+  <jsp:include page="footer.jsp"></jsp:include>
 
-		<jsp:include page="footer.jsp"></jsp:include>
 	</div>
 </body>
+
 </html>

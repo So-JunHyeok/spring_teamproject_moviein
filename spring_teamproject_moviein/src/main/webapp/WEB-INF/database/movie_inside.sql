@@ -5,7 +5,7 @@ create table movie_introduction_present(
 	bContent varchar2(4000),
 	bRelease varchar2(10) not null,
 	bDate date default sysdate,
-	safeFile varchar2(200),
+	safeFile varchar2(2000),
 	bstar number(10),
 	bHit number(4) default 0
 );

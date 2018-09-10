@@ -38,7 +38,7 @@ public class MIDao {
 		// return dtos;
 	}
 	
-	public void writer1(final String bTitle ,final String bContent ,final String bRelease) {
+	/*public void writer1(final String bTitle ,final String bContent ,final String bRelease) {
 		// final을 붙여서 나중에 파라미터 값들이 변경되지 않도록 하지 않기 위해 사용
 		template.update(new PreparedStatementCreator() {
 			
@@ -53,7 +53,7 @@ public class MIDao {
 				return pstmt;
 			}
 		});
-	}
+	}*/
 	
 	public MIDto contentview(String strNum) {
 		upHit(strNum);

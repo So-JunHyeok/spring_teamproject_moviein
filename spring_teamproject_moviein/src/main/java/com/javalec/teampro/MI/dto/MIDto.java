@@ -8,6 +8,7 @@ public class MIDto {
 	private String bTitle;
 	private String bContent;
 	private String bRelease;
+	private String safeFile;
 	private Timestamp bDate;
 	int bHit;
 	
@@ -15,12 +16,13 @@ public class MIDto {
 		
 	}
 
-	public MIDto(int bNum, String bTitle, String bContent, String bRelease, int bHit) {
+	public MIDto(int bNum, String bTitle, String bContent, String bRelease, int bHit, String safeFile) {
 		this.bNum = bNum;
 		this.bTitle = bTitle;
 		this.bContent = bContent;
 		this.bRelease = bRelease;
 		this.bHit = bHit;
+		this.safeFile = safeFile;
 	}
 
 	
@@ -72,6 +74,14 @@ public class MIDto {
 
 	public void setbContent(String bContent) {
 		this.bContent = bContent;
+	}
+
+	public String getSafeFile() {
+		return safeFile;
+	}
+
+	public void setSafeFile(String safeFile) {
+		this.safeFile = safeFile;
 	}
 
 	
