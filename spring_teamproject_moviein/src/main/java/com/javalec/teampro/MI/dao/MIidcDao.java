@@ -46,7 +46,7 @@ public class MIidcDao {
 	public ArrayList<MIidcDto> idcmovielist( String dNum, int StrRow, int EndRow ) {
 		// ArrayList<MDto> dtos = null;
 		
-		String query = "select *from(select rownum rnum, dNum, dTitle, dContent, dRelease, dDate, safeFile, bstar, dHit from movie_introduction_board order by rnum asc) where rnum between "+StrRow+" and "+EndRow+" order by rnum asc";
+		String query = "select * from(select rownum rnum, dNum, dTitle, dContent, dRelease, dDate, safeFile,safeFile2, bstar, dHit from movie_introduction_board order by rnum asc) where rnum between "+StrRow+" and "+EndRow+" order by rnum asc";
 		//SELECT * FROM movie_introduction_board  WHERE ROWNUM >= 12 AND ROWNUM <= 24;
 		//select *from(select rownum rnum, dNum from movie_introduction_board order by dNum asc) where rnum between 1 and 12;
 		//"select * from movie_introduction_board where rownum >= "+StrRow+" and rownum <= "+EndRow+" ";
