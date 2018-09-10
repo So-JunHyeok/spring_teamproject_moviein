@@ -26,6 +26,26 @@ public class DAI_Dao {
 		template = Constant.template;
 	}
 	
+	
+public Integer PTableCount() {
+		
+		String query = "select count(*) from DAI_people_board";
+		return template.queryForInt(query);
+	}
+	
+	public Integer DTableCount() {
+		
+		String query = "select count(*) from DAI_director_board";
+		return template.queryForInt(query);
+	}
+	
+	public Integer RTableCount() {
+		
+		String query = "select count(*) from PM_recommend_board";
+		return template.queryForInt(query);
+	}
+	
+	
 	public DAI_Dto recommendView(String dAI_Id) {
 		String sql = "select * from PM_recommend_board where dAI_Id = "+dAI_Id;
 		return template.queryForObject(sql, new BeanPropertyRowMapper<DAI_Dto>(DAI_Dto.class));
@@ -55,18 +75,19 @@ public class DAI_Dao {
 		
 	}
 	
-	public ArrayList<DAI_Dto> DAI_dlist() {
-		String sql = "select * from DAI_director_board order by dAI_Id desc";
+	public ArrayList<DAI_Dto> DAI_dlist(int StrRow, int EndRow) {
+		String sql = "select *from(select rownum rnum, dAI_Id, dAI_Title, dAI_Content, dAI_Name, safeFile, dAI_Date, dAI_Hit from DAI_director_board order by rnum asc) where rnum between "+StrRow+" and "+EndRow+" order by rnum asc";
 		return (ArrayList<DAI_Dto>) template.query(sql, new BeanPropertyRowMapper<DAI_Dto>(DAI_Dto.class));
 	}
 	
-	public ArrayList<DAI_Dto> DAI_list() {
-		String sql = "select * from PM_recommend_board order by dAI_Id desc";
+	
+	public ArrayList<DAI_Dto> DAI_list(int StrRow, int EndRow) {
+		String sql = "select *from(select rownum rnum, dAI_Id, dAI_Title, dAI_Content, dAI_Name, safeFile, dAI_Date, dAI_Hit from PM_recommend_board order by rnum asc) where rnum between "+StrRow+" and "+EndRow+" order by rnum asc";;
 		return (ArrayList<DAI_Dto>) template.query(sql, new BeanPropertyRowMapper<DAI_Dto>(DAI_Dto.class));
 	}
 	
-	public ArrayList<DAI_Dto> DAI_plist() {
-		String sql = "select * from DAI_people_board order by dAI_Id desc";
+	public ArrayList<DAI_Dto> DAI_plist(int StrRow,  int EndRow) {
+		String sql = "select *from(select rownum rnum, dAI_Id, dAI_Title, dAI_Content, dAI_Name, safeFile, dAI_Date, dAI_Hit from DAI_people_board order by rnum asc) where rnum between "+StrRow+" and "+EndRow+" order by rnum asc";
 		return (ArrayList<DAI_Dto>) template.query(sql, new BeanPropertyRowMapper<DAI_Dto>(DAI_Dto.class));
 	}
 	

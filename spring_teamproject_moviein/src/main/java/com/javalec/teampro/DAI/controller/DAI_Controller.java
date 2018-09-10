@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.util.Iterator;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -53,20 +54,31 @@ public class DAI_Controller {
 	
 	
 	@RequestMapping("/recommend_list")
-	public String recommend_list(Model model) {
+	public String recommend_list(Model model, HttpServletRequest request) {
+		
+		model.addAttribute("request", request);
 		
 		command = new PM_RecommendListCommand();
 		command.execute(model);
 		
 		return "recommend_list";
 	}
+	
 	@RequestMapping("/people_list")
-	public String people_list(Model model) {
+	public String people_list(HttpServletRequest request, Model model, HttpSession session) {
+		model.addAttribute("request", request);
+		
+	    String DpageNum = request.getParameter("DpageNum");
+		String PpageNum = request.getParameter("PpageNum");
+		
+		session.setAttribute("DpageNum", DpageNum);
+		session.setAttribute("PpageNum", PpageNum);
 		
 		command = new DAI_DirectorListCommand();
 		command.execute(model);
 		command = new DAI_PeopleListCommand();
 		command.execute(model);
+		
 		
 		return "people_list";
 	}
