@@ -94,13 +94,13 @@
   height: 800px;
   float: left;
 }
-.director img {
+.director ul {
+  margin-top: 40px;
+}
+.director ul li img {
 	width:202px;
 	height:173px;
 	margin-bottom:20px;
-}
-.director ul {
-  margin-top: 40px;
 }
 
 /*-------------------*/
@@ -131,11 +131,6 @@
   margin-left: 35px;
   margin-top: 20px;
 }
-.lee img {
-	width:202px;
-	height:173px;
-	margin-bottom:20px;
-}
 .lee ul{
   margin-top: 40px;
 }
@@ -145,6 +140,7 @@
 .lee-co{
   width: 1101px;
   border-bottom: 2px solid #7e9bdb;
+  margin-top:50px;
 }
 .lee-co h4{
   margin-left: 20px
@@ -152,6 +148,11 @@
 .lee-co i {
   float: right;
   font-size: 20px;
+}
+.lee ul li img {
+	width:202px;
+	height:173px;
+	margin-bottom:20px;
 }
 
 .paging{
