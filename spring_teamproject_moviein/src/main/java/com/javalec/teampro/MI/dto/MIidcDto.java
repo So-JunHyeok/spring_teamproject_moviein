@@ -26,6 +26,7 @@ public class MIidcDto {
 		this.dHit = dHit;
 		this.safeFile = safeFile;
 		this.safeFile = safeFile2;
+	
 	}
 
 	
@@ -93,5 +94,7 @@ public class MIidcDto {
 	public void setSafeFile2(String safeFile2) {
 		this.safeFile2 = safeFile2;
 	}
+
+
 
 }

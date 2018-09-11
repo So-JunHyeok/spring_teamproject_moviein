@@ -56,13 +56,15 @@ public class FileUploadController {
 			String fileName = upload.getOriginalFilename();
 			byte[] bytes = upload.getBytes();
 			String uploadPath = root_path + "resources\\community\\imageUpload\\" + fileName;
-
+			
+			System.out.println("uploadpath : "+uploadPath);
 			out = new FileOutputStream(new File(uploadPath));
 			out.write(bytes);
 			String callback = request.getParameter("CKEditorFuncNum");
 			printWriter = response.getWriter();
 			
 			String fileUrl = "resources\\\\community\\\\imageUpload\\\\" + fileName;
+			System.out.println("fileurl : "+fileUrl);
 			printWriter.println("<script type='text/javascript'>window.parent.CKEDITOR.tools.callFunction(" + callback
 					+ ",'" + fileUrl + "','이미지를 업로드 하였습니다.'" + ")</script>");
 			printWriter.flush();

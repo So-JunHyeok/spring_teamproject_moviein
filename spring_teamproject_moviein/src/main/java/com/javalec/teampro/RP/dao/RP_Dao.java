@@ -184,23 +184,4 @@ public ArrayList<RP_Dto> IDCreplyview(String rgroup) {
 	
 	
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 }

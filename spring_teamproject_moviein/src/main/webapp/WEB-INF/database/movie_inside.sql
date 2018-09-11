@@ -31,7 +31,8 @@ create table movie_introduction_board(
 	dContent varchar2(4000),
 	dRelease varchar2(10) not null,
 	dDate date default sysdate,
-	safeFile varchar2(200),
+	safeFile varchar2(2000),
+	safeFile2 varchar2(2000),
 	bstar number(10),
 	dHit number(4) default 0
 );
