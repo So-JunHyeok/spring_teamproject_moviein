@@ -133,12 +133,15 @@ create table repple_board(
 );
 
 
+drop table repple_board;
+drop table repple_present;
 
 
 create sequence repple_present_seq;
 create sequence repple_board_seq;
 
 select * from repple_present;
+select * from repple_board;
 
 
 drop sequence repple_present_seq;

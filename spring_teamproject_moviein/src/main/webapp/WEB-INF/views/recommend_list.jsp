@@ -41,6 +41,9 @@
 					</c:forEach>
 
 				</div>
+				              <c:forEach var="pagenum" begin="${startPage}" end="${EndPage}">
+              <span><a href="recommend_list?pageNum=${pagenum}">${pagenum}</a></span>
+			 </c:forEach>
 			</div>
 		</div>
 	</div>

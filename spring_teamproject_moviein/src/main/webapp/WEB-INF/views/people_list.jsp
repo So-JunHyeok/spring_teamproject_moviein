@@ -36,6 +36,9 @@
               <li><a href="people_view?dAI_Id=${dto.dAI_Id}"><img src="<c:url value='/upload_test/${dto.safeFile.substring(15)}'/>" alt="이미지"></a></li>
             </c:forEach>
             </ul>
+                         <c:forEach var="ppagenum" begin="${PStartPage}" end="${PEndPage}">
+              <span><a href="people_list?PpageNum=${ppagenum}&DpageNum=${DPageNum}">${ppagenum}</a></span>
+			 </c:forEach>
           </div>
       </div>
         </div>
@@ -51,6 +54,9 @@
              	<li><a href="director_view?dAI_Id=${dtos.dAI_Id}"><img src="<c:url value='/upload_test/${dtos.safeFile.substring(15)}'/>" alt="이미지"></a></li>
     	      </c:forEach>
               </ul>
+                               <c:forEach var="dpagenum" begin="${DStartPage}" end="${DEndPage}">
+              <span><a href="people_list?DpageNum=${dpagenum}&PpageNum=${PPageNum}">${dpagenum}</a></span>
+			 </c:forEach>
             </div>
           </div>
         </div>

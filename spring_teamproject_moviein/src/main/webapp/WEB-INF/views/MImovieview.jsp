@@ -34,7 +34,7 @@
       <div class="container">
         <div class="content-area">
           <div class="movie">
-            <form action="modify" method="post">
+            <form action="MImodify" method="post">
           	<input type="hidden" name="bNum" value="${content_view.bNum}">
           	 <div class="introduction">  <!-- 영화 제목 -->
           		${content_view.bTitle}
@@ -141,7 +141,7 @@
 
 
           <div class="reply-box">
-          	 <form action="reply" method="post"> 
+          	 <form action="IDC_reply" method="post"> 
             <div class="reply-head">내 평점</div>
             <div class="reply-rating">
             </div>

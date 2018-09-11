@@ -64,7 +64,7 @@ public class FileUploadController {
 			String callback = request.getParameter("CKEditorFuncNum");
 			printWriter = response.getWriter();
 			
-			String fileUrl = "teampro\\\\resources\\\\community\\\\imageUpload\\\\" + fileName;
+			String fileUrl = "resources\\\\community\\\\imageUpload\\\\" + fileName;
 			System.out.println("fileurl : "+fileUrl);
 			printWriter.println("<script type='text/javascript'>window.parent.CKEDITOR.tools.callFunction(" + callback
 					+ ",'" + fileUrl + "','이미지를 업로드 하였습니다.'" + ")</script>");
