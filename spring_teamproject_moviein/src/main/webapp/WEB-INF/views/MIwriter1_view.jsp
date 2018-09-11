@@ -83,7 +83,9 @@
 						<div class="writer1-btn">
 							<input type="submit" value="작성"> 
 							<label for="safeFile">업로드</label>
+							<label for="safeFile2">업로드</label>
 							<input type="file" name="safeFile" id="safeFile" style="display:none"/>
+							<input type="file" name="safeFile2" id="safeFile2" style="display:none"/>
 							<input type="button" value="취소" onclick="location.href='MImovielist'">
 						</div>
 					</form>

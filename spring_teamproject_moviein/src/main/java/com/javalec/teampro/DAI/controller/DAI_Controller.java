@@ -174,8 +174,9 @@ public class DAI_Controller {
 
         String originFileName = mf.getOriginalFilename(); // 원본 파일 명
         long fileSize = mf.getSize(); // 파일 사이즈
-        
-
+        HttpSession session = request.getSession();
+        String root_path = session.getServletContext().getRealPath("/");
+        System.out.println(root_path);
         String safeFile = path + System.currentTimeMillis() + originFileName;
         
         model.addAttribute("safeFile",safeFile);
