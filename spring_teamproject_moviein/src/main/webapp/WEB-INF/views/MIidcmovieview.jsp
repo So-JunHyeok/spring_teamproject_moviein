@@ -140,7 +140,7 @@
 			</div>
 
           <div class="reply-box">
-           <form action="reply" method="post"> 
+           <form action="IDC_reply" method="post"> 
             <div class="reply-head">내 평점</div>
             <div class="reply-rating">
             </div>
@@ -156,7 +156,7 @@
 			</div>
 			 	<input type="text" id="writer" name="writer" placeholder="작성자 입력">
                 <input type="hidden" name="rgroup" value="${idccontent_view.dNum}">
-                <textarea name="reply-content" cols="100" rows="7" style="resize: none" placeholder="내용을 입력하세요."></textarea>
+                <textarea name="content" cols="100" rows="7" style="resize: none" placeholder="내용을 입력하세요."></textarea>
               </div>
               <div class="reply-btn">
                 <input class="contents-btn" type="submit" name="" value="등록">

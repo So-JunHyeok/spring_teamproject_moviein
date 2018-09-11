@@ -141,7 +141,7 @@
 
 
           <div class="reply-box">
-          	 <form action="IDC_reply" method="post"> 
+          	 <form action="reply" method="post"> 
             <div class="reply-head">내 평점</div>
             <div class="reply-rating">
             </div>

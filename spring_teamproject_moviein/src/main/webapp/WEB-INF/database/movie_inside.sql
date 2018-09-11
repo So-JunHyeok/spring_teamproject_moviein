@@ -133,17 +133,30 @@ create table repple_board(
 );
 
 
+create table repple_recommend(
+	num number(4) primary key,
+	content varchar2(1500),
+	writer varchar2(50),
+	star number(4) default 0,
+	rgroup number(4) default 0
+);
+
+
+
+
 drop table repple_board;
 drop table repple_present;
+drop table repple_recommend;
 
 
 create sequence repple_present_seq;
 create sequence repple_board_seq;
+create sequence repple_recommend_seq;
 
 select * from repple_present;
 select * from repple_board;
-
+select * from repple_recommend;
 
 drop sequence repple_present_seq;
 drop sequence repple_board_seq;
-
+drop sequence repple_recommend_seq;

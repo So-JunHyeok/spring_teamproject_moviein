@@ -184,4 +184,84 @@ public ArrayList<RP_Dto> IDCreplyview(String rgroup) {
 	
 	
 	
+	/*               DAI R 댓글                                   */
+	
+	public SDto DAI_R_AvgStar(String dAI_Id){
+		String query = "select avg(star) as avgStar, rgroup from repple_recommend group by rgroup having rgroup = " + dAI_Id;
+		try {
+		return template.queryForObject(query, new BeanPropertyRowMapper<SDto>(SDto.class));
+		}catch(EmptyResultDataAccessException e) {
+			return null;
+		}
+	}
+	
+	
+public ArrayList<RP_Dto> DAI_R_replyview(String rgroup) {
+		String query = "select * from repple_recommend where rgroup = " + rgroup;
+		try {
+		return (ArrayList<RP_Dto>) template.query(query, new BeanPropertyRowMapper<RP_Dto>(RP_Dto.class));
+		}catch(EmptyResultDataAccessException e) {
+			return null;
+		}
+	}
+
+	public void DAI_R_reply(final String content, final String writer, final String star, final String rgroup ) {
+		
+		String query = "insert into repple_recommend (num, content, writer, star, rgroup) values(repple_board_seq.nextval,?,?,?,?)";
+		template.update(query, new PreparedStatementSetter() {
+			
+			@Override
+			public void setValues(PreparedStatement ps) throws SQLException {
+				// TODO Auto-generated method stub
+				ps.setString(1, content);
+				ps.setString(2, writer);
+				ps.setInt(3, Integer.parseInt(star));
+				ps.setInt(4, Integer.parseInt(rgroup));
+				
+			}
+		});
+	
+	}
+	
+	public void DAI_R_relymodify(final String num, final String content,  final String writer, final String star) {
+		
+		String query = "update repple_recommend set content = ?,writer = ?,star = ? where num = ? ";
+		template.update(query, new PreparedStatementSetter() {
+			
+			
+			@Override
+			public void setValues(PreparedStatement ps) throws SQLException {
+				
+				ps.setString(1, content);
+				ps.setString(2, writer);
+				ps.setInt(3, Integer.parseInt(star));
+				ps.setInt(4, Integer.parseInt(num));
+				
+				
+			}
+		});
+	}
+	
+	public void DAI_R_reply_delete(final String num) {
+		
+		String query = "delete from repple_recommend where num = ?";
+		template.update(query, new PreparedStatementSetter() {
+			
+			@Override
+			public void setValues(PreparedStatement ps) throws SQLException {
+
+				ps.setInt(1, Integer.parseInt(num));
+				
+			}
+		});
+		
+	}
+	
+	
+	
+	
+	
+	
+	
+	
 }

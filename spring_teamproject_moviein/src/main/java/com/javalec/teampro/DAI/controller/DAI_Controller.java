@@ -35,6 +35,8 @@ import com.javalec.teampro.DAI.command.PM_RecommendModifyCommand;
 import com.javalec.teampro.DAI.command.PM_RecommendModifyViewCommand;
 import com.javalec.teampro.DAI.command.PM_RecommendViewCommand;
 import com.javalec.teampro.DAI.command.PM_RecommendWriteCommand;
+import com.javalec.teampro.RP.command.MRPCommand;
+import com.javalec.teampro.RP.command.R_DAI_viewCommand;
 import com.javalec.teampro.Util.Constant;
 
 @Controller
@@ -43,6 +45,7 @@ public class DAI_Controller {
 	private static final String UPLOAD_PATH = "C:\\upload_test";
 	
 	DAI_Command command = null;
+	MRPCommand recommand;
 	
 	public JdbcTemplate template;
 	
@@ -108,6 +111,23 @@ public class DAI_Controller {
 		
 		return "recommend_view";
 	}
+	
+	@RequestMapping("/reply_recommend_view")
+	public String recommend_reply_view(HttpServletRequest request, Model model) {
+		
+		model.addAttribute("request", request);
+		recommand = new R_DAI_viewCommand();
+		recommand.execute(model);
+		
+		return "recommend_view";
+	}
+	
+	
+	
+	
+	
+	
+	
 	@RequestMapping("/write_view")
 	public String write_view(Model model) {
 		

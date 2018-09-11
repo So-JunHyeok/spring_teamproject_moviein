@@ -54,23 +54,107 @@
 
 
 
-          <div class="reply-box">
+ <div class="reply-box">
+           <form action="IDC_reply" method="post"> 
             <div class="reply-head">내 평점</div>
             <div class="reply-rating">
-              별점: ☆☆☆☆☆
             </div>
+            
             <div class="reply-write">
               <div class="reply-text">
-                <textarea name="reply-content" cols="100" rows="7" style="resize: none" placeholder="내용을 입력하세요."></textarea>
+              <div class="starRev">  
+			      <input type="radio" name="star" id="p1" value="1"><span id="pp1" class="starR">별1</span>
+			      <input type="radio" name="star" id="p2" value="2"><span id="pp2" class="starR">별2</span>
+			      <input type="radio" name="star" id="p3" value="3"><span id="pp3" class="starR">별3</span>
+			      <input type="radio" name="star" id="p4" value="4"><span id="pp4" class="starR">별4</span>
+			      <input type="radio" name="star" id="p5" value="5"><span id="pp5" class="starR">별5</span>	      
+			</div>
+			 	<input type="text" id="writer" name="writer" placeholder="작성자 입력">
+                <input type="hidden" name="rgroup" value="${idccontent_view.dNum}">
+                <textarea name="content" cols="100" rows="7" style="resize: none" placeholder="내용을 입력하세요."></textarea>
               </div>
               <div class="reply-btn">
-                <input class="contents-btn" type="button" name="" value="등록">
+                <input class="contents-btn" type="submit" name="" value="등록">
               </div>
             </div>
+            
+              </form>
           </div>
 
           <div class="reply-view">
-            댓글 박스
+          <c:forEach items="${reply_view}" var="dto">
+          <form action="#" method="post">
+            <div class="reply-view-content">
+            <div class="reply-view-writer">작성자 : ${dto.writer}</div>
+            <div class="reply-view-date">2018.08.27 03:22</div>
+                        <div class="reply-view-star">
+           	별점 : ${dto.star}
+            <c:choose>
+            
+            <c:when test="${dto.star eq '1'}">
+            <span id="s1" class="starR on">별1</span>
+            <span id="s2" class="starR">별2</span>
+            <span id="s3" class="starR">별3</span>
+            <span id="s4" class="starR">별4</span>
+            <span id="s5" class="starR">별5</span>
+            </c:when>
+            
+            <c:when test="${dto.star eq '2'}">
+            <span id="s1" class="starR on">별1</span>
+            <span id="s2" class="starR on">별2</span>
+            <span id="s3" class="starR">별3</span>
+            <span id="s4" class="starR">별4</span>
+            <span id="s5" class="starR">별5</span>
+            </c:when>
+            
+            <c:when test="${dto.star eq '3'}">
+            <span id="s1" class="starR on">별1</span>
+            <span id="s2" class="starR on">별2</span>
+            <span id="s3" class="starR on">별3</span>
+            <span id="s4" class="starR">별4</span>
+            <span id="s5" class="starR">별5</span>
+            </c:when>
+            
+            <c:when test="${dto.star eq '4'}">
+            <span id="s1" class="starR on">별1</span>
+            <span id="s2" class="starR on">별2</span>
+            <span id="s3" class="starR on">별3</span>
+            <span id="s4" class="starR on">별4</span>
+            <span id="s5" class="starR">별5</span>
+            </c:when>
+            
+            <c:when test="${dto.star eq '5'}">
+            <span id="s1" class="starR on">별1</span>
+            <span id="s2" class="starR on">별2</span>
+            <span id="s3" class="starR on">별3</span>
+            <span id="s4" class="starR on">별4</span>
+            <span id="s5" class="starR on">별5</span>
+            </c:when>
+            
+            </c:choose>
+            </div>
+   
+            <div class="reply-content1">
+           <c:if test="${dto.writer !='sojunhyeok'}">${dto.content}</c:if>
+            <c:if test="${dto.writer =='sojunhyeok'}"><textarea style="border:none; resize: none; font-size: 30" cols="100" rows="7" name="content">${dto.content}</textarea></c:if>
+            </div>
+            
+            <input type="hidden" name="num" value="${dto.num}">
+            <input type="hidden" name="star" value="${dto.star}">
+            <input type="hidden" name="writer" value="${dto.writer}">
+            <input type="hidden" name="bNum" value="${content_view.bNum}">
+            <div class="repy_button">
+            <input type="submit" value="수정">
+            <div class="reply-a">
+            <a href="reply_delete?num=${dto.num}&bNum=${content_view.bNum}">삭제</a>
+            </div>
+            </div>
+            </div>
+           
+          
+
+             </form>
+               </c:forEach>
           </div>
 			</div>
 		</div>
