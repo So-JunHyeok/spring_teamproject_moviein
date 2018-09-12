@@ -36,6 +36,8 @@ import com.javalec.teampro.DAI.command.PM_RecommendModifyViewCommand;
 import com.javalec.teampro.DAI.command.PM_RecommendViewCommand;
 import com.javalec.teampro.DAI.command.PM_RecommendWriteCommand;
 import com.javalec.teampro.RP.command.MRPCommand;
+import com.javalec.teampro.RP.command.R_DAI_MRP_ListCommand;
+import com.javalec.teampro.RP.command.R_DAI_MRP_writCommand;
 import com.javalec.teampro.RP.command.R_DAI_viewCommand;
 import com.javalec.teampro.Util.Constant;
 
@@ -108,18 +110,22 @@ public class DAI_Controller {
 		model.addAttribute("request", request);
 		command = new PM_RecommendViewCommand();
 		command.execute(model);
-		
-		return "recommend_view";
-	}
-	
-	@RequestMapping("/reply_recommend_view")
-	public String recommend_reply_view(HttpServletRequest request, Model model) {
-		
-		model.addAttribute("request", request);
+		recommand = new R_DAI_MRP_ListCommand();
+		recommand.execute(model);
 		recommand = new R_DAI_viewCommand();
 		recommand.execute(model);
 		
 		return "recommend_view";
+	}
+	
+	@RequestMapping("/reply_recommend_write")
+	public String recommend_reply_view(HttpServletRequest request, Model model) {
+		
+		model.addAttribute("request", request);
+		recommand = new R_DAI_MRP_writCommand();
+		recommand.execute(model);
+		
+		return "redirect:recommend_list";
 	}
 	
 	

@@ -7,6 +7,21 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" href="resources/css/recommendview.css">
+    <link rel="stylesheet" href="resources/css/style-index.css"/>
+    <link rel="stylesheet" href="resources/css/swiper.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Do+Hyeon" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Do+Hyeon|Jua" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Markazi+Text" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Jua" rel="stylesheet">
+    <link rel="stylesheet" href="resources/css/star.css"/>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+    <script src="resources/js/jquery-3.3.1.min.js"></script>
+    <script src="resources/js/jquery-1.11.3.min.js"></script>
+    <script src="resources/js/swiper.min.js"></script>
+    <!-- 별점주기에 사용 -->
+    <script src="resources/js/jquery.js"></script>
 <title>Insert title here</title>
 </head>
 <body>
@@ -52,10 +67,62 @@
     		</div>		
     	</div>
 
+		<div style="margin-top: 100px;">평점  : ${Star.avgStar}</div>
+    	
+    		 <div>
+            <c:choose>
+            
+            <c:when test="${Star.avgStar eq '1'}">
+            <span id="s1" class="starR on">별1</span>
+            <span id="s2" class="starR">별2</span>
+            <span id="s3" class="starR">별3</span>
+            <span id="s4" class="starR">별4</span>
+            <span id="s5" class="starR">별5</span>
+            </c:when>
+            
+            <c:when test="${Star.avgStar eq '2'}">
+            <span id="s1" class="starR on">별1</span>
+            <span id="s2" class="starR on">별2</span>
+            <span id="s3" class="starR">별3</span>
+            <span id="s4" class="starR">별4</span>
+            <span id="s5" class="starR">별5</span>
+            </c:when>
+            
+            <c:when test="${Star.avgStar eq '3'}">
+            <span id="s1" class="starR on">별1</span>
+            <span id="s2" class="starR on">별2</span>
+            <span id="s3" class="starR on">별3</span>
+            <span id="s4" class="starR">별4</span>
+            <span id="s5" class="starR">별5</span>
+            </c:when>
+            
+            <c:when test="${Star.avgStar eq '4'}">
+            <span id="s1" class="starR on">별1</span>
+            <span id="s2" class="starR on">별2</span>
+            <span id="s3" class="starR on">별3</span>
+            <span id="s4" class="starR on">별4</span>
+            <span id="s5" class="starR">별5</span>
+            </c:when>
+            
+            <c:when test="${Star.avgStar eq '5'}">
+            <span id="s1" class="starR on">별1</span>
+            <span id="s2" class="starR on">별2</span>
+            <span id="s3" class="starR on">별3</span>
+            <span id="s4" class="starR on">별4</span>
+            <span id="s5" class="starR on">별5</span>
+            </c:when>
+            
+            </c:choose>
+              
+              
+              </div>
+		
+		
+		
 
 
  <div class="reply-box">
-           <form action="IDC_reply" method="post"> 
+           <form action="reply_recommend_write" method="post"> 
             <div class="reply-head">내 평점</div>
             <div class="reply-rating">
             </div>
@@ -70,7 +137,7 @@
 			      <input type="radio" name="star" id="p5" value="5"><span id="pp5" class="starR">별5</span>	      
 			</div>
 			 	<input type="text" id="writer" name="writer" placeholder="작성자 입력">
-                <input type="hidden" name="rgroup" value="${idccontent_view.dNum}">
+                <input type="hidden" name="rgroup" value="${recommend_view.dAI_Id}">
                 <textarea name="content" cols="100" rows="7" style="resize: none" placeholder="내용을 입력하세요."></textarea>
               </div>
               <div class="reply-btn">
@@ -82,7 +149,7 @@
           </div>
 
           <div class="reply-view">
-          <c:forEach items="${reply_view}" var="dto">
+          <c:forEach items="${DAI_reply_view}" var="dto">
           <form action="#" method="post">
             <div class="reply-view-content">
             <div class="reply-view-writer">작성자 : ${dto.writer}</div>
@@ -142,11 +209,11 @@
             <input type="hidden" name="num" value="${dto.num}">
             <input type="hidden" name="star" value="${dto.star}">
             <input type="hidden" name="writer" value="${dto.writer}">
-            <input type="hidden" name="bNum" value="${content_view.bNum}">
+            <input type="hidden" name="dAI_Id" value="${recommend_view.dAI_Id}">
             <div class="repy_button">
             <input type="submit" value="수정">
             <div class="reply-a">
-            <a href="reply_delete?num=${dto.num}&bNum=${content_view.bNum}">삭제</a>
+            <a href="reply_delete?num=${dto.num}&dAI_Id=${recommend_view.dAI_Id}">삭제</a>
             </div>
             </div>
             </div>
@@ -157,8 +224,62 @@
                </c:forEach>
           </div>
 			</div>
+		
 		</div>
-	</div>
+		</div>
+		
+	
+
 	<jsp:include page="footer.jsp"></jsp:include>
 </body>
+ <script type="text/javascript">
+    $('#pp1').click(function(){
+      $(this).parent().children('span').removeClass('on');
+      $(this).addClass('on').prevAll('span').addClass('on');
+      $("#p1").prop("checked", true)
+
+      return false;
+    });
+    </script>
+    
+    <script type="text/javascript">
+    $('#pp2').click(function(){
+      $(this).parent().children('span').removeClass('on');
+      $(this).addClass('on').prevAll('span').addClass('on');
+      $("#p2").prop("checked", true)
+
+      return false;
+    });
+    </script>
+    
+    <script type="text/javascript">
+    $('#pp3').click(function(){
+      $(this).parent().children('span').removeClass('on');
+      $(this).addClass('on').prevAll('span').addClass('on');
+      $("#p3").prop("checked", true)
+
+      return false;
+    });
+    </script>
+    
+    <script type="text/javascript">
+    $('#pp4').click(function(){
+      $(this).parent().children('span').removeClass('on');
+      $(this).addClass('on').prevAll('span').addClass('on');
+      $("#p4").prop("checked", true)
+
+      return false;
+    });
+    </script>
+    
+    <script type="text/javascript">
+    $('#pp5').click(function(){
+      $(this).parent().children('span').removeClass('on');
+      $(this).addClass('on').prevAll('span').addClass('on');
+      $("#p5").prop("checked", true)
+
+      return false;
+    });
+    
+    </script>
 </html>

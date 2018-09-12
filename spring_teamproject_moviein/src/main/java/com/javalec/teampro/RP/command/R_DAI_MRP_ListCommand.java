@@ -19,10 +19,10 @@ public class R_DAI_MRP_ListCommand implements MRPCommand {
 	public void execute(Model model) {
 		Map<String, Object> map = model.asMap();
 		HttpServletRequest request = (HttpServletRequest) map.get("request");
-		String dNum  = request.getParameter("dNum");
+		String dAI_Id  = request.getParameter("dAI_Id");
 
 	RP_Dao dao = new RP_Dao();	
-	SDto dtos = dao.DAI_R_AvgStar(dNum);
+	SDto dtos = dao.DAI_R_AvgStar(dAI_Id);
 	
 	
 	model.addAttribute("Star", dtos);
