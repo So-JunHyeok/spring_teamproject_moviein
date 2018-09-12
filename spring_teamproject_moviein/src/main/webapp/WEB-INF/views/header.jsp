@@ -119,7 +119,7 @@ $(document).ready(function(){
 
         <div class="topmenu">
           <div class="menu">
-            <a href="#">Main</a>
+            <a href="/">Main</a>
           </div>
           <div class="menu">
             <a href="MImovielist">Independent Film</a>

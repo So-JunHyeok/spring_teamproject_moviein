@@ -26,19 +26,24 @@ public class DAI_Dao {
 		template = Constant.template;
 	}
 	
+
 	
-public Integer PTableCount() {
+
+
+	public Integer PTableCount() {
 		
 		String query = "select count(*) from DAI_people_board";
 		return template.queryForInt(query);
 	}
 	
+
 	public Integer DTableCount() {
 		
 		String query = "select count(*) from DAI_director_board";
 		return template.queryForInt(query);
 	}
 	
+
 	public Integer RTableCount() {
 		
 		String query = "select count(*) from PM_recommend_board";
@@ -50,30 +55,41 @@ public Integer PTableCount() {
 		String sql = "select * from PM_recommend_board where dAI_Id = "+dAI_Id;
 		return template.queryForObject(sql, new BeanPropertyRowMapper<DAI_Dto>(DAI_Dto.class));
 	}
+	
+
 	public DAI_Dto peopleView(String dAI_Id) {
 		String sql = "select * from DAI_people_board where dAI_Id = "+dAI_Id;
 		return template.queryForObject(sql, new BeanPropertyRowMapper<DAI_Dto>(DAI_Dto.class));
 		
 	}
+	
+	
 	public DAI_Dto directorView(String dAI_Id) {
 		String sql = "select * from DAI_director_board where dAI_Id = "+dAI_Id;
 		return template.queryForObject(sql, new BeanPropertyRowMapper<DAI_Dto>(DAI_Dto.class));
 	}
+	
+	
 	public DAI_Dto peopleModifyView(String dAI_Id) {
 		String sql = "select * from DAI_people_board where dAI_Id = "+dAI_Id;
 		return template.queryForObject(sql, new BeanPropertyRowMapper<DAI_Dto>(DAI_Dto.class));
 		
 	}
+	
+
 	public DAI_Dto recommendModifyView(String dAI_Id) {
 		String sql = "select * from PM_recommend_board where dAI_Id = "+dAI_Id;
 		return template.queryForObject(sql, new BeanPropertyRowMapper<DAI_Dto>(DAI_Dto.class));
 		
 	}
+	
+
 	public DAI_Dto directorModifyView(String dAI_Id) {
 		String sql = "select * from DAI_director_board where dAI_Id = "+dAI_Id;
 		return template.queryForObject(sql, new BeanPropertyRowMapper<DAI_Dto>(DAI_Dto.class));
 		
 	}
+	
 	
 	public ArrayList<DAI_Dto> DAI_dlist(int StrRow, int EndRow) {
 		String sql = "select *from(select rownum rnum, dAI_Id, dAI_Title, dAI_Content, dAI_Name, safeFile, dAI_Date, dAI_Hit from DAI_director_board order by rnum asc) where rnum between "+StrRow+" and "+EndRow+" order by rnum asc";
