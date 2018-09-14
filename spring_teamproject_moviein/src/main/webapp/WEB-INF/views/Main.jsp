@@ -44,9 +44,9 @@
               <h4 class="ti4">comcept</h4>
             </div>
             <div class="movieweekly-top5-area">
-            <c:forEach items="${TOP}" var="dto">
+            <c:forEach items="${TOP}" var="dto" begin="0" end="5">
             <div class="movieweekly-top5">
-              <img src="<c:url value='/upload_test/${dto.safeFile.substring(15)}'/>" alt="">
+              <a href="MIidcmovieview?dNum=${dto.dNum}"><img src="<c:url value='/upload_test/${dto.safeFile.substring(15)}'/>" alt=""></a>
             </div>
             </c:forEach>
            <!--  <div class="movieweekly-top5">
@@ -123,11 +123,13 @@
             <div class="book-title1">
               <br>
               <em>MOVIE INSIDE</em>
+              <c:forEach items="${IDC_list}" var="dto">
               <ul>
               <li>
-                <a href="#">- 잠들지 못하던 어느 밤</a>
+                <a href="MIidcmovieview?dNum=${dto.dNum}">- ${dto.dTitle}</a>
               </li>
               </ul>
+              </c:forEach>
             </div>
           </div>
           <div class="independent-book-title">
@@ -164,11 +166,13 @@
             <div class="book-title1">
               <br>
               <em>MOVIE INSIDE</em>
+              <c:forEach items="${IDC_P_list}" var="dto">
               <ul>
               <li>
-                <a href="#">- 잠들지 못하던 어느 밤</a>
+                <a href="recommend_view?dAI_Id=${dto.dAI_Id}">- ${dto.dAI_Title}</a>
               </li>
               </ul>
+              </c:forEach>
             </div>
           </div>
           <div class="independent-book-title">

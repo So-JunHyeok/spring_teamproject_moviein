@@ -16,12 +16,13 @@ select * from movie_introduction_board
 SELECT * FROM movie_introduction_board  WHERE ROWNUM >= 1 AND ROWNUM <= 15;
 
 select *from(select rownum rnum, dDate, dTitle, safeFile from movie_introduction_board order by rnum asc) where rnum between 1 and 5 order by rnum asc;
+select * from(select dNum, dDate, dTitle, safeFile, RANK() OVER (order by dNum desc ) as rk from movie_introduction_board) where rk between 1 and 5;
 
 
+select * from(select dNum, dDate, dTitle, safeFile, RANK() OVER (order by dHit desc ) as rk from movie_introduction_board) where rk between 1 and 5;
+select dDate, dTitle, safeFile, RANK() OVER (order by dHit desc ) as rk from movie_introduction_board
 
-select * from(select rownum rnum, dNum, dTitle, dContent, dRelease, dDate, safeFile, safeFile2, dHit from movie_introduction_board order by dHit asc) where rnum between 1 and 5 order by rnum asc";
-
-
+select * from(select dNum, dDate, dTitle, safeFile, RANK() OVER (order by dHit desc ) as rk from movie_introduction_board) where rk between 1 and 5;
 
 select count(*) from movie_introduction_board;
 /* 독립영화 게시판 테이블 */

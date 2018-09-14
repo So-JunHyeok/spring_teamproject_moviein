@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.javalec.teampro.Main.command.Main_Command;
+import com.javalec.teampro.Main.command.Main_DAI_rec_list_Command;
+import com.javalec.teampro.Main.command.Main_IDClist_Command;
 import com.javalec.teampro.Main.command.Main_Top5_Command;
 
 /**
@@ -39,8 +41,10 @@ public class HomeController {
 		String formattedDate = dateFormat.format(date);
 		
 		model.addAttribute("serverTime", formattedDate );
+
 		
-		return "Main";
+
+		return "redirect: Main";
 	}
 	
 	@RequestMapping("/Main")
@@ -49,6 +53,10 @@ public class HomeController {
 		model.addAttribute("request", request);
 		
 		macommand = new Main_Top5_Command();
+		macommand.execute(model);
+		macommand = new Main_IDClist_Command();
+		macommand.execute(model);
+		macommand = new Main_DAI_rec_list_Command();
 		macommand.execute(model);
 
 		
