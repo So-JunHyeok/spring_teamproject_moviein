@@ -213,7 +213,7 @@
             <div class="repy_button">
             <input type="submit" value="수정">
             <div class="reply-a">
-            <a href="reply_delete?num=${dto.num}&dAI_Id=${recommend_view.dAI_Id}">삭제</a>
+            <a href="reply_recommend_delete?num=${dto.num}&dAI_Id=${recommend_view.dAI_Id}">삭제</a>
             </div>
             </div>
             </div>

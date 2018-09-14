@@ -2,8 +2,8 @@
 create table movie_introduction_present(
 	bNum number(4) primary key,
 	bTitle varchar2(100) not null,
-	bContent varchar2(4000),
-	bRelease varchar2(10) not null,
+	bContent long,
+	bRelease varchar2(100) not null,
 	bDate date default sysdate,
 	safeFile varchar2(2000),
 	safeFile2 varchar2(2000),
@@ -15,11 +15,11 @@ select * from movie_introduction_present where bNum between 1 and 12;
 select * from movie_introduction_board 
 SELECT * FROM movie_introduction_board  WHERE ROWNUM >= 1 AND ROWNUM <= 15;
 
-select *from(select rownum rnum, dDate, dTitle from movie_introduction_board order by rnum asc) where rnum between 1 and 12 order by rnum asc;
+select *from(select rownum rnum, dDate, dTitle, safeFile from movie_introduction_board order by rnum asc) where rnum between 1 and 5 order by rnum asc;
 
 
 
-
+select * from(select rownum rnum, dNum, dTitle, dContent, dRelease, dDate, safeFile, safeFile2, dHit from movie_introduction_board order by dHit asc) where rnum between 1 and 5 order by rnum asc";
 
 
 
@@ -28,7 +28,7 @@ select count(*) from movie_introduction_board;
 create table movie_introduction_board( 
 	dNum number(4) primary key,
 	dTitle varchar2(100) not null,
-	dContent varchar2(4000),
+	dContent long,
 	dRelease varchar2(10) not null,
 	dDate date default sysdate,
 	safeFile varchar2(2000),
@@ -59,7 +59,7 @@ drop sequence movie_introduction_board_seq;
 create table PM_recommend_board (
 	dAI_Id number(4) primary key,
 	dAI_Title varchar2(100),
-	dAI_Content varchar2(1000),
+	dAI_Content long,
 	dAI_Name varchar2(100),
 	safeFile varchar2(200),
 	dAI_Date date default sysdate,
@@ -70,7 +70,7 @@ create table PM_recommend_board (
 create table DAI_people_board (
 	dAI_Id number(4) primary key,
 	dAI_Title varchar2(100),
-	dAI_Content varchar2(1000),
+	dAI_Content long,
 	dAI_Name varchar2(100),
 	safeFile varchar2(200),
 	dAI_Date date default sysdate,
@@ -81,7 +81,7 @@ create table DAI_people_board (
 create table DAI_director_board (
 	dAI_Id number(4) primary key,
 	dAI_Title varchar2(100),
-	dAI_Content varchar2(1000),
+	dAI_Content long,
 	dAI_Name varchar2(100),
 	safeFile varchar2(200),
 	dAI_Date date default sysdate,

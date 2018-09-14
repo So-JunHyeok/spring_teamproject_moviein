@@ -37,6 +37,7 @@ import com.javalec.teampro.DAI.command.PM_RecommendViewCommand;
 import com.javalec.teampro.DAI.command.PM_RecommendWriteCommand;
 import com.javalec.teampro.RP.command.MRPCommand;
 import com.javalec.teampro.RP.command.R_DAI_MRP_ListCommand;
+import com.javalec.teampro.RP.command.R_DAI_MRP_deleteCommand;
 import com.javalec.teampro.RP.command.R_DAI_MRP_writCommand;
 import com.javalec.teampro.RP.command.R_DAI_viewCommand;
 import com.javalec.teampro.Util.Constant;
@@ -128,7 +129,15 @@ public class DAI_Controller {
 		return "redirect:recommend_list";
 	}
 	
-	
+	@RequestMapping("/reply_recommend_delete")
+	public String recommend_reply_delete(HttpServletRequest request, Model model) {
+		
+		model.addAttribute("request", request);
+		recommand = new R_DAI_MRP_deleteCommand();
+		recommand.execute(model);
+		
+		return "redirect:recommend_list";
+	}
 	
 	
 	

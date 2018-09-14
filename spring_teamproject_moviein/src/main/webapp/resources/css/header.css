@@ -1,85 +1,89 @@
 @charset "UTF-8";
-
+#header-fake {
+  width : 100%;
+  height: 150px;
+}
 #header{
   width : 100%;
-  height: 140px;
-  position: relative;
-  /* background-color: #999; */
+  height: 150px;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  transition: top 0.2s ease-in-out;
+  z-index: 2;
 }
-.container{
-  width : 960px;
+.nav-up {
+	top: -150px;
+}
+.top-header {
+  width: 100%;
+  height: 40%;
+  background-color: #000;
+}
+/* container */
+.header-container{
+  width : 100%;
+  height: 100%;
   margin : 0 auto;
   font-family: 'Nanum Gothic', sans-serif;
-  
   /* background-color: rgba(0, 0, 0, 0.3); */
 }
-/* 공지사항 */
-#content-list {
-    background: #fff;
-    float: right;
-    margin-top: 3px;
+.top-container {
+  width: 960px;
+  height: 30%;
+  margin: 0 auto;
 }
 
-
-#rank-list a {
-    color: black;
-    text-decoration: none;
+/* 로그인 */
+#login-logout {
+  width: 50%;
+  padding: 20px 0px;
+  float: right;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
 }
-
-
-#rank-list a:hover {
-    text-decoration: underline;
-    color: red;
+.header-login-box {
+  font-size: 13px;
+  font-family: 'Varela Round', sans-serif;
 }
-
-
-#rank-list {
-    overflow: hidden;
-    width: 250px;
-    height: 20px;
-    padding-left: 15px;
-    margin: 0;
-    border: 2px solid #000;
+.logout {
+  font-size: 13px;
+  font-family: 'Varela Round', sans-serif;
 }
-
-
-#rank-list dt {
-    display: none;
+#login-logout .header-login-box > ul li  a {
+  text-decoration: none;
+  color: #fff;
 }
-
-
-#rank-list dd {
-    position: relative;
-    margin: 0;
+#login-logout .logout > ul li  a {
+  text-decoration: none;
+  color: #fff;
 }
-
-
-#rank-list ol {
-    width: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    margin: 0;
-    padding: 0;
-    list-style-type: none;
+#login-logout .header-login-box > ul li  a:hover {
+  color: #bbb;
 }
-
-
-#rank-list li {
-    height: 20px;
-    line-height: 20px;
-    padding-left: 25px;
+#login-logout .logout > ul li  a:hover{
+  color: #bbb;
 }
-/* 공지사항 */
+#login-logout .header-login-box > ul li {
+  float: left;
+  margin-right: 20px;
+  text-decoration: none;
+}
+#login-logout .logout > ul li {
+  float: left;
+  margin-right: 20px;
+}
+/* 로그인 */
 /* 검색창 */
 .searchbox {
   width: 50%;
+  padding: 10px 0px;
 }
 .search-contents {
   width: 200px;
   height: 35px;
-  margin: 20px 0px;
-  border : 2px solid black;
+  border : 2px solid #fff;
   border-radius: 15px;
 }
 .search-contents input {
@@ -93,221 +97,208 @@
 .search-contents i {
   float : left;
   width : 10%;
-  color : gray;
+  color : #fff;
   margin-top : 7px;
   margin-left : 10px;
 }
 /* Header */
 .topmenu {
   width: 100%;
-  height: 50px;
-  padding-top: 25px;
-  border-top: 2px solid #000000;
-  border-bottom: 2px solid #000000;
+  height: 60%;
+  background-color: rgba(255,255,255, 0.6);
 }
-.container .topmenu .menu > a{
+.header-container .topmenu .header-img {
+  width: 20%;
+  height: 100%;
   float: left;
-  text-decoration: none;
-  color: #000000;
-  margin-left: 5%;
 }
-
-.container .topmenu .login > a{
+.header-container .topmenu .header-img > a img {
+  height: 100%;
+  width: 70%;
+  margin-left: 45px;
+}
+.menubox {
+  width: 80%;
+  height: 100%;
+  float: right;
+  margin: 0 auto;
+  font-size: 25px;
+  font-family: 'Jua', sans-serif;
+}
+.topmenu .menubox > ul {
+    margin-top: 30px;
+    margin-left: 155px;
+}
+.topmenu .menubox > ul li {
   float: left;
+  margin-right: 70px;
+}
+.topmenu .menubox > ul li a {
+  color: #000;
   text-decoration: none;
-  color: #000000;
-  margin-left: 7%;
 }
-.container .topmenu .sign-up > a{
-  float: left;
-  text-decoration: none;
-  color: #000000;
-  margin-left: 3%;
-}
-.container .topmenu .logout > a{
-  float: left;
-  text-decoration: none;
-  color: #000000;
-  margin-left: 7%;
-}
-.container .topmenu .information > a{
-  float: left;
-  text-decoration: none;
-  color: #000000;
-  margin-left: 3%;
-}
-.menu {
-  width: 90%;
-  margin: 0 auto;
-  font-size: 23px;
-  font-family: 'Lato', sans-serif;
-}
-.login {
-  width: 90%;
-  margin: 0 auto;
-  font-size: 16px;
-  font-family: 'Varela Round', sans-serif;
-}
-.sign-up {
-  width: 90%;
-  margin: 0 auto;
-  font-size: 16px;
-  font-family: 'Varela Round', sans-serif;
-}
-.logout {
-  width: 90%;
-  margin: 0 auto;
-  font-size: 16px;
-  font-family: 'Varela Round', sans-serif;
-}
-.information {
-  width: 90%;
-  margin: 0 auto;
-  font-size: 16px;
-  font-family: 'Varela Round', sans-serif;
-}
-.container .topmenu .menu > a:hover {
-  color: #FB0303;
-  transition: all .4s ease;
-  text-decoration: none;
-  letter-spacing: 3px;
-}
-.container .topmenu .login > a:hover {
-  color: #FB0303;
+.topmenu .menubox > ul li a:hover {
+  color: red;
   transition: all .7s ease;
-  text-decoration: none;
-  letter-spacing: 3px;
-}
-.container .topmenu .sign-up > a:hover {
-  color: #FB0303;
-  transition: all .7s ease;
-  text-decoration: none;
-  letter-spacing: 3px;
-}
-.container .topmenu .logout > a:hover {
-  color: #FB0303;
-  transition: all .7s ease;
-  text-decoration: none;
-  letter-spacing: 3px;
-}
-.container .topmenu .information > a:hover {
-  color: #FB0303;
-  transition: all .7s ease;
-  text-decoration: none;
-  letter-spacing: 3px;
+  letter-spacing: 4px;
 }
 /* Header */
 
 /* 로그인 */
 .login1{
-
-text-align: center;
-font-family:sans-serif;
-
+	text-align: center;
+	font-family:sans-serif;
 }
+.login-container{
+    width: 60%;
+    height: 500px;
+    vertical-align: center;
+    background-color: #ffffff;
+    float: left;
+    margin: 0 auto;
+  }
+.login-box {
+  margin-top: 35px;
+  padding-top: 80px;
+}
+.login-h {
+  margin-bottom: 40px;
+  font-family: 'Jua', sans-serif;
+}
+.login-idbox {
+	margin-bottom: 15px;
+}
+.login-idbox > i {
+	font-size: 20px;
+}
+.login-idbox > input {
+    height: 20px;
+    /* border-radius: 20px; */
+    /* border: 2px solid #000; */
+    padding: 1px;
+}
+.login-pwbox {
+	margin-bottom: 35px;
+}
+.login-pwbox > i {
+	font-size: 20px;
+}
+.login-pwbox > input {
+    height: 20px;
+    /* border-radius: 20px; */
+    /* border: 2px solid #000; */
+    padding: 1px;
+}
+.login-button {
+	width: 50%;
+	float: left;
+    margin-top: 162px;
+}
+.login1 .login-container .login-box .login-button > input {
+	width: 100%;
+    height: 50px;
+    border: none;
+    background-color: #fff;
+    color: #000;
+    font-size: 15px;
+    font-weight: bold;
+}
+.login1 .login-container .login-box .login-button > input:hover {
+	background-color: #000;
+	color: #fff;
+	transition: all .5s ease;
+}
+.login-img {
+	float: right;
+    width: 40%;
+    height: 500px;
+    position: relative;
+}
+.login-img .login-img-box {
+	width: 100%;
+    height: 100%;
+}
+.login-img .login-img-box img{
+	width: 100%;
+    height: 100%;
+}
+/* .login-img .login-img-contents {
+	position: absolute;
+    top: 140px;
+    right: 115px;
+    color: #fff;
+} */
+.login-img .login-cover {
+	width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    background-color: rgba(0,0,0, 0.6);
+}
+/* 로그인 */
+/* 회원가입 */
 .join-box2 {
   margin-top: 10px;
+}
+.join-box .check-btn input {
+    width: 289px;
+    margin-left: 24px;
+    margin-top: 10px;
+    border: none;
+    background-color: #fff;
+    color: #000;
+    padding: 3px;
+    font-weight: bold;
+}
+.join-box .check-btn input:hover{
+    background-color: #000;
+    color: #fff;
+    transition: all 0.4s ease;
+    transform: scale(1.1);
+}
+.join-box .post-btn input {
+    width: 289px;
+    margin-left: 24px;
+    margin-top: 10px;
+    border: none;
+    background-color: #fff;
+    color: #000;
+    padding: 3px;
+    font-weight: bold;
+}
+.join-box .post-btn input:hover {
+	background-color: #000;
+    color: #fff;
+    transition: all 0.4s ease;
+    transform: scale(1.1);
+}
+.birth-box {
+	margin-top: 15px;
+}
+.join-box .birth-box input {
+	width: 285px;
 }
 .join-signup {
   margin-bottom: 20px;
   font-family: 'Jua', sans-serif;
 }
-.login-box {
-  margin-top: 17%;
-  padding-top: 50px;
-}
-.login-h {
-  margin-bottom: 35px;
-  font-family: 'Jua', sans-serif;
-}
-.login-container{
-
-  width: 350px;
-  height: 350px;
-  vertical-align: center;
-  background-color: #ffffff;
-  border-radius: 30px;
-  }
-
-.login1 .login-container .login-idbox input{
-
-  border-left-width:0;
-  border-right-width:0;
-  border-top-width:0;
-  border-bottom-width:1px;
-  border-color: #000000;
-  padding: 5px 5px;
-  margin-top: 3px;
-  margin-bottom: 10px;
-
-}
-
-.login1 .login-container .login-button .btn1{
-
-background-color: #000000;
-border: none;
-border-radius: 5px;
-color: #FFFFFF;
-padding:8px 8px;
-font-size: 10px;
-  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.3), 0 6px 20px 0 rgba(0,0,0,0.19);
-}
-.login1 .login-container .login-button .btn1:hover{
-  font-weight: bold;
-  transform: scale(0.9);
-}
-/* 로그인 */
-/* 회원가입 */
-.idcheck {
-  background-color: #000;
-  color: #fff;
-  border-radius: 5px;
-}
-.idcheck:hover {
-  font-weight: bold;
-  transform: scale(0.9);
-}
-.join .join-container .join-box .join-box2 input{
-  border-color: #000000;
-  padding: 5px 5px;
-  margin-top: 3px;
-  border: none;
-  border-bottom: 1px solid #000000;
-}
 .join{
   text-align: center;
   font-family:sans-serif;
-  background-color: #ffffff;
-  margin: 0 auto;
-  width: 500px;
-  height: 520px;
-  margin-top: 3%;
-  border-radius: 30px;
 }
 .join-container {
-  margin-top: 5%;
+    background-color: #ffffff;
+    margin: 0 auto;
+    width: 60%;
+    height: 595px;
+    float: left;
 }
-.join .join-container .join-box .join-box2 textarea{
-  background-attachment: local;
-  width: 220px;
-  border: 1px solid #000000;
-  resize: none;
+.join .join-container .join-box .join-box2 input[type="date"] {
+  width: 185px;
 }
-.join .join-container .join-box .join-box2 .btn2{
-  background-color: #000000;
-  border: none;
-  border-radius: 5px;
-  color: #FFFFFF;
-  padding:8px 8px;
-  font-size: 10px;
-  margin-top:2px;
-  margin-right: 8px;
-  text-align: center;
-  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.3), 0 6px 20px 0 rgba(0,0,0,0.19);
-}
-.join .join-container .join-box .join-box2 .btn2:hover{
-  font-weight: bold;
-  transform: scale(0.9);
+.join-box2 input[type="radio"] {
+  padding: absolute;
 }
 .join-box2 label {
   position: relative;
@@ -316,9 +307,6 @@ font-size: 10px;
   border: 1px solid #999;
   background: #fff;
 }
-.join-box2 input[type="radio"] {
-  padding: absolute;
-}
 .join-box2 input:checked+label {
   position: relative;
   color: #000;
@@ -326,6 +314,55 @@ font-size: 10px;
   background-color: #fff;
   border: 1px solid #000;
 }
+.join-button {
+	width: 50%;
+	float: left;
+	margin-top: 29px;
+}
+.join-button input {
+	width: 100%;
+    height: 50px;
+    border: none;
+    background-color: #fff;
+    color: #000;
+    font-size: 15px;
+    font-weight: bold;
+}
+.join-button input:hover{
+	background-color: #000;
+	color: #fff;
+	transition: all .5s ease;
+}
+.join-img {
+    float: right;
+    width: 40%;
+    height: 595px;
+    position: relative;
+}
+.join-img .join-img-box {
+	width: 100%;
+    height: 100%;
+}
+.join-img .join-img-box img{
+	width: 100%;
+    height: 100%;
+}
+/* .join-img .join-img-contents {
+    position: absolute;
+    top: 140px;
+    right: 145px;
+    color: #fff;
+} */
+.join-img .join-cover {
+	width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    background-color: rgba(0,0,0, 0.6);
+}
+
+
 #man {
   margin-right: -20px;
 }

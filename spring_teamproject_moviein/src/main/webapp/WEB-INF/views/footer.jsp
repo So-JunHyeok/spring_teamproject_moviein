@@ -12,7 +12,7 @@
 <div id="footer">
       <div class="footer-container">
         <div class="footer-teamname">
-          <img style="width:70%" src="resources/img/movieinside-white.png">
+          <img src="resources/img/main-white.png">
         </div>
         <div class="footer-introduce">
           <div class="introducebox">

@@ -13,13 +13,16 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.javalec.teampro.DAI.command.PM_RecommendListCommand;
+import com.javalec.teampro.Main.command.Main_Command;
+import com.javalec.teampro.Main.command.Main_Top5_Command;
 
 /**
  * Handles requests for the application home page.
  */
 @Controller
 public class HomeController {
+	
+	Main_Command macommand;
 	
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 	
@@ -45,6 +48,8 @@ public class HomeController {
 		
 		model.addAttribute("request", request);
 		
+		macommand = new Main_Top5_Command();
+		macommand.execute(model);
 
 		
 		return "Main";

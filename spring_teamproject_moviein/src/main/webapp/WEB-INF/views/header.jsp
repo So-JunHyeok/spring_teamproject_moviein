@@ -13,19 +13,18 @@
  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
  <script src="resources/js/jquery-3.3.1.min.js"></script>
  <script src="resources/js/jquery.bpopup.min.js"></script>
- <script type="text/javascript" src="resources/js/application.js"></script>
  <script src="resources/js/join.js"></script>
  <script src="resources/js/daumpost.js"></script>
  <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
 </head>
 <script>
 function gotojoin(){
-	  
+
     bpopup=$('.join').bPopup({
         fadeSpeed: 'slow', //can be a string ('slow'/'fast') or int
         followSpeed: 1000, //can be a string ('slow'/'fast') or int
         modalColor: '#F2F2F2'
-        
+
     });
  }
 
@@ -39,21 +38,21 @@ $(document).ready(function(){
     bpopup=$('.login1').bPopup({
         fadeSpeed: 'slow', //can be a string ('slow'/'fast') or int
         followSpeed: 1000, //can be a string ('slow'/'fast') or int
-        modalColor: '#F2F2F2'
+        modalColor: '#151515'
     })
   })
   // 검색창
   $('.search-contents').find('input').on('focus', function() {
     $('.search-contents').find('input').closest('div').animate({width : 300}, 500);
-    $('.search-contents').find('input').closest('div').find('i').css('color', 'black');
+    $('.search-contents').find('input').closest('div').find('i').css('color', 'gray');
   })
 
   $('.search-contents').find('input').on('blur', function() {
     $('.search-contents').find('input').closest('div').animate({width : 200}, 500);
-    $('.search-contents').find('input').closest('div').find('i').css('color', 'gray');
+    $('.search-contents').find('input').closest('div').find('i').css('color', 'white');
   })
-  
-  $(".logout").find('a').on("click", function(e) {
+
+  $(".logout-box").find('a').on("click", function(e) {
 	  $.ajax({
 		  type: "GET",
 		  url: "logout",
@@ -64,7 +63,7 @@ $(document).ready(function(){
 		  }
 	  })
   })
-})
+});
 // 회원가입
 $(document).ready(function(){
   var bpopup='';
@@ -75,35 +74,44 @@ $(document).ready(function(){
     bpopup=$('.join').bPopup({
         fadeSpeed: 'slow', //can be a string ('slow'/'fast') or int
         followSpeed: 1000, //can be a string ('slow'/'fast') or int
-        modalColor: '#F2F2F2'
+        modalColor: '#151515'
     })
   })
-})
+});
 </script>
 <body>
-
+<div id="header-fake">
+</div>
  <div id="header">
-    <div class="container">
-      <div id="content-list">
-                <dl id="rank-list">
-                <i class="fas fa-bell"></i>
-                    <dt>실시간 급상승 검색어</dt>
-                    <dd>
-                        <ol>
-                            <li><a href="#">1. 공작</a></li>
-                            <li><a href="#">2. 신과함께</a></li>
-                            <li><a href="#">3. 맘마미아!2</a></li>
-                            <li><a href="#">4. 몬스터 호텔</a></li>
-                            <li><a href="#">5. 미션 임파서블</a></li>
-                            <li><a href="#">6. 명탐정 코난</a></li>
-                            <li><a href="#">7. 극장판 헬로로봇</a></li>
-                            <li><a href="#">8. 인크래더블 2</a></li>
-                            <li><a href="#">9. 어느 가족</a></li>
-                            <li><a href="#">10. 노인을 위한 나라는 없다</a></li>
-                        </ol>
-                    </dd>
-                </dl>
-            </div>
+    <div class="header-container">
+      <div class="top-header">
+        <div class="top-container">
+      <div id="login-logout">
+        <c:if test="${sessionScope.id == null}">
+        <div class="header-login-box">
+        <ul>
+          <li class="login">
+            <a href="#" >로그인</a>
+          </li>
+          <li class="sign-up">
+            <a href="#">회원가입</a>
+          </li>
+        </ul>
+        </div>
+        </c:if>
+        <c:if test="${sessionScope.id != null}">
+        <div class="logout">
+        <ul>
+          <li class="logout-box">
+            <a href="#">로그아웃</a>
+          </li>
+          <li class="myinfor-box">
+            <a href="RSinfor">내 정보</a>
+          </li>
+        </ul>
+        </div>
+        </c:if>
+      </div>
 
 
             <div class="searchbox">
@@ -114,43 +122,65 @@ $(document).ready(function(){
                 </form>
               </div>
             </div>
+            </div>
+          </div>
 
 
 
         <div class="topmenu">
-          <div class="menu">
-            <a href="/">Main</a>
+          <div class="header-img">
+            <a href="MImovielist"><img src="resources/img/main-logo.png"></a>
           </div>
-          <div class="menu">
-            <a href="MImovielist">Independent Film</a>
+        	<div class="menubox">
+            <ul>
+              <li><a href="Main">홈</a></li>
+              <li><a href="MImovielist">독립영화</a></li>
+              <li><a href="people_list">배우&감독 인터뷰</a></li>
+              <li><a href="recommend_list">영화 추천</a></li>
+              <li><a href="#">영화관 소개</a></li>
+            </ul>
           </div>
-          <div class="menu">
-            <a href="recommend_list">Recommendation</a>
-          </div>
-          <div class="menu">
-            <a href="people_list">Interview</a>
-          </div>
-          <c:if test="${sessionScope.id == null}">
-          <div class="login">
-            <a href="#" ><i class="fas fa-sign-in-alt"></i></a>
-          </div>
-          <div class="sign-up">
-            <a href="#"><i class="fas fa-user-plus"></i></a>
-          </div>
-          </c:if>
-          <c:if test="${sessionScope.id != null}">
-          <div class="logout">
-            <a href="#"><i class="fas fa-sign-out-alt"></i></a>
-          </div>
-          <div class="information">
-            <a href="RSinfor"><i class="fas fa-address-card"></i></a>
-          </div>
-          </c:if>
         </div>
       </div>
     </div>
 
 </body>
+<script>
+var lastScrollTop = 0;
+var delta = 100; 	// 동작의 구현이 시작되는 위치
+var navbarHeight = $('header').outerHeight(); 	// 영향을 받을 요소를 선택
+var didScroll;
+// 스크롤시에 사용자가 스크롤했다는 것을 알림
+$(window).scroll(function(event){ 
+	didScroll = true; 
+}); 
+// hasScrolled()를 실행하고 didScroll 상태를 재설정
+// $(window).scroll에 의해 스크롤 이벤트를 감지하여 disScroll의 변수 값을 true로 설정
+// 매 250ms마다 didScroll의 변수 값을 체크하여 동작을 구현하고 다시 didScroll의 변수 값을 false로 설정
+	setInterval(function() { 
+		if (didScroll) { 
+			hasScrolled(); 
+			didScroll = false; 
+			} 
+		}, 250); 
+	function hasScrolled() {
+		var st = $(this).scrollTop();	// 접근하기 쉽게 현재 스크롤의 위치를 저장
+		
+		// delta값보다 더 스크롤 되었는지를 확인한다
+		if(Math.abs(lastScrollTop - st) <= delta) return; 
+		// 헤더의 높이보다 더 스크롤되었는지 확인하고 스크롤의 방향이 위인지 아래인지를 확인한다
+		if (st > lastScrollTop && st > navbarHeight){ 
+			// Scroll Down 
+			$('header').removeClass('nav-down').addClass('nav-up');
+			} else { 
+				// Scroll Up 
+				if(st + $(window).height() < $(document).height()) { 
+					$('header').removeClass('nav-up').addClass('nav-down'); 
+					} 
+				} 
+			lastScrollTop = st; // 현재 스크롤의 위치를 지정
+		}
+</script>
 <section>
     <div class="login1" style="display:none">
 
@@ -160,7 +190,7 @@ $(document).ready(function(){
           <h2 class="login-h">LOGIN</h2>
 
         <div class="login-idbox">
-          <i class="fas fa-unlock"></i>
+          <i class="fas fa-user"></i>
           <input type="text" id="lid" name="id" placeholder="ID">
         </div>
 
@@ -171,11 +201,22 @@ $(document).ready(function(){
 
           <!-- 아직 회원가입 창으로 넘어갈 수 있는 링크는 지정 안 함 -->
         <div class="login-button">
-          <input class="login-btn" type="submit" value="login" onclick="login();">
-          <input class="login-btn" type="button" value="Sing-up" onclick="gotojoin();">
+          <input class="login-btn" type="submit" name="loginbtn" value="로그인" onclick="login();">
+        </div>
+        <div class="login-button">
+          <input class="login-btn" type="button" value="회원가입" onclick="gotojoin();">
         </div>
     </div>
     </div>
+        <div class="login-img">
+        <div class="login-cover"></div>
+    	<div class="login-img-box">
+    		<img src="resources/img/login-img1.jpg">
+    	</div>
+    	<!-- <div class="login-img-contents">
+    		<h4>무비인사이드</h4>
+    	</div> -->
+    	</div>
     </div>
 
     <div class="join" style="display:none">
@@ -215,23 +256,23 @@ $(document).ready(function(){
       <i class="fas fa-birthday-cake"></i>
       <input type="date" id="birth" name="birth">
     </div>
-    
+
 	<div class="join-box2">
 		<i class="fas fa-home"></i>
-		<input type="text" id="postcode" placeholder="우편번호" size="40">
+		<input type="text" id="postcode" placeholder="우편번호" size="40" readonly>
 	</div>
 	<div class="post-btn">
 		<input type="button" onclick="sample6_execDaumPostcode()" value="우편번호 찾기">
 	</div>
 	<div class="join-box2">
 		<i class="fas fa-home"></i>
-		<input type="text" id="address" placeholder="주소" size="40">
+		<input type="text" id="address" placeholder="주소" size="40" readonly>
 	</div>
 	<div class="join-box2">
 		<i class="fas fa-home"></i>
 		<input type="text" id="address2" placeholder="상세주소" size="40">
 	</div>
-	
+
     <!-- 전화번호 및 이메일 주소 -->
     <div class="join-box2">
       <i class="fas fa-phone"></i>
@@ -258,13 +299,24 @@ $(document).ready(function(){
       	<option value="none">없음</option>
       </select>
     </div>
-    <div class="join-box2">
-      <input class="btn2" type="submit" value="Sign-Up" onclick="signup();" id="join-btn" disabled>
-      <input class="btn2" type="button" value="Cancle" onclick="location.href='MImovielist'">
+    <div class="join-button">
+      <input class="join-btn" type="submit" value="회원가입" onclick="signup();" id="join-btn" disabled>
+    </div>
+    <div class="join-button">
+      <input class="join-btn" type="button" value="취소" onclick="location.href='MImovielist'">
     </div>
 
   </div>
   </div>
+  	    <div class="join-img">
+        <div class="join-cover"></div>
+    	<div class="join-img-box">
+    		<img src="resources/img/login-img1.jpg">
+    	</div>
+    	<!-- <div class="join-img-contents">
+    		<h4>무비인사이드</h4>
+    	</div> -->
+    	</div>
   </div>
   </section>
-</html>
+  </html>

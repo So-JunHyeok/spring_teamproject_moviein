@@ -22,6 +22,10 @@
   font-family: 'Dancing Script', cursive;
   text-align: center;
 }
+#footer .footer-container .footer-teamname img{
+	width: 100%;
+	margin-top: 50px;
+}
 .footer-introduce {
   float: left;
   margin-top: 4%;
