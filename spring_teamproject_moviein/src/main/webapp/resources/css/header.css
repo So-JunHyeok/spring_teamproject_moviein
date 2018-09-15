@@ -13,7 +13,7 @@
   z-index: 2;
 }
 .nav-up {
-	top: -150px;
+   top: -150px;
 }
 .top-header {
   width: 100%;
@@ -93,6 +93,7 @@
   width : 85%;
   padding-left : 5px;
   margin-top : 9px;
+  color: #f4f3f2;
 }
 .search-contents i {
   float : left;
@@ -146,8 +147,8 @@
 
 /* 로그인 */
 .login1{
-	text-align: center;
-	font-family:sans-serif;
+   text-align: center;
+   font-family:sans-serif;
 }
 .login-container{
     width: 60%;
@@ -158,18 +159,18 @@
     margin: 0 auto;
   }
 .login-box {
-  margin-top: 35px;
-  padding-top: 80px;
+   height: 90%;
 }
 .login-h {
-  margin-bottom: 40px;
-  font-family: 'Jua', sans-serif;
+    padding-top: 110px;
+    padding-bottom: 40px;
+    font-family: 'Jua', sans-serif;
 }
 .login-idbox {
-	margin-bottom: 15px;
+   margin-bottom: 15px;
 }
 .login-idbox > i {
-	font-size: 20px;
+   font-size: 20px;
 }
 .login-idbox > input {
     height: 20px;
@@ -178,10 +179,10 @@
     padding: 1px;
 }
 .login-pwbox {
-	margin-bottom: 35px;
+   margin-bottom: 35px;
 }
 .login-pwbox > i {
-	font-size: 20px;
+   font-size: 20px;
 }
 .login-pwbox > input {
     height: 20px;
@@ -189,13 +190,15 @@
     /* border: 2px solid #000; */
     padding: 1px;
 }
-.login-button {
-	width: 50%;
-	float: left;
-    margin-top: 162px;
+.login-button-box {
+   height: 10%;
 }
-.login1 .login-container .login-box .login-button > input {
-	width: 100%;
+.login-button {
+   width: 50%;
+   float: left;
+}
+.login1 .login-container .login-button-box .login-button > input {
+   width: 100%;
     height: 50px;
     border: none;
     background-color: #fff;
@@ -203,33 +206,35 @@
     font-size: 15px;
     font-weight: bold;
 }
-.login1 .login-container .login-box .login-button > input:hover {
-	background-color: #000;
-	color: #fff;
-	transition: all .5s ease;
+.login1 .login-container .login-button-box .login-button > input:hover {
+   background-color: #000;
+   color: #fff;
+   transition: all .5s ease;
 }
 .login-img {
-	float: right;
+   float: right;
     width: 40%;
     height: 500px;
     position: relative;
 }
 .login-img .login-img-box {
-	width: 100%;
+   width: 100%;
     height: 100%;
 }
 .login-img .login-img-box img{
-	width: 100%;
+   width: 100%;
     height: 100%;
 }
-/* .login-img .login-img-contents {
-	position: absolute;
+.login-img .login-img-contents {
+    position: absolute;
     top: 140px;
-    right: 115px;
+    right: 50px;
     color: #fff;
-} */
+    font-size: 50px;
+    font-family: 'Niconne', cursive;
+}
 .login-img .login-cover {
-	width: 100%;
+   width: 100%;
     height: 100%;
     position: absolute;
     top: 0px;
@@ -238,13 +243,19 @@
 }
 /* 로그인 */
 /* 회원가입 */
-.join-box2 {
-  margin-top: 10px;
+.join{
+  text-align: center;
+  font-family:sans-serif;
+}
+.join-box {
+  height: 90%;
+}
+.join-button-box {
+   height: 10%
 }
 .join-box .check-btn input {
-    width: 289px;
+    width: 314px;
     margin-left: 24px;
-    margin-top: 10px;
     border: none;
     background-color: #fff;
     color: #000;
@@ -255,12 +266,10 @@
     background-color: #000;
     color: #fff;
     transition: all 0.4s ease;
-    transform: scale(1.1);
 }
 .join-box .post-btn input {
-    width: 289px;
-    margin-left: 24px;
-    margin-top: 10px;
+   width: 316px;
+    margin-left: 22px;
     border: none;
     background-color: #fff;
     color: #000;
@@ -268,24 +277,20 @@
     font-weight: bold;
 }
 .join-box .post-btn input:hover {
-	background-color: #000;
+   background-color: #000;
     color: #fff;
     transition: all 0.4s ease;
-    transform: scale(1.1);
 }
 .birth-box {
-	margin-top: 15px;
+   margin-top: 5px;
+    margin-bottom: 5px;
 }
 .join-box .birth-box input {
-	width: 285px;
+   width: 312px;
 }
 .join-signup {
   margin-bottom: 20px;
   font-family: 'Jua', sans-serif;
-}
-.join{
-  text-align: center;
-  font-family:sans-serif;
 }
 .join-container {
     background-color: #ffffff;
@@ -293,6 +298,9 @@
     width: 60%;
     height: 595px;
     float: left;
+}
+.join-box2 {
+   padding: 7px 0px;
 }
 .join .join-container .join-box .join-box2 input[type="date"] {
   width: 185px;
@@ -310,18 +318,17 @@
 .join-box2 input:checked+label {
   position: relative;
   color: #000;
-  background: #000;
   background-color: #fff;
   border: 1px solid #000;
 }
 .join-button {
-	width: 50%;
-	float: left;
-	margin-top: 29px;
+    width: 50%;
+    height: 100%;
+    float: left;
 }
 .join-button input {
-	width: 100%;
-    height: 50px;
+    width: 100%;
+    height: 100%;
     border: none;
     background-color: #fff;
     color: #000;
@@ -329,9 +336,9 @@
     font-weight: bold;
 }
 .join-button input:hover{
-	background-color: #000;
-	color: #fff;
-	transition: all .5s ease;
+   background-color: #000;
+   color: #fff;
+   transition: all .5s ease;
 }
 .join-img {
     float: right;
@@ -340,21 +347,23 @@
     position: relative;
 }
 .join-img .join-img-box {
-	width: 100%;
+   width: 100%;
     height: 100%;
 }
 .join-img .join-img-box img{
-	width: 100%;
+   width: 100%;
     height: 100%;
 }
-/* .join-img .join-img-contents {
+.join-img .join-img-contents {
     position: absolute;
     top: 140px;
-    right: 145px;
+    right: 75px;
     color: #fff;
-} */
+    font-size: 50px;
+    font-family: 'Niconne', cursive;
+}
 .join-img .join-cover {
-	width: 100%;
+   width: 100%;
     height: 100%;
     position: absolute;
     top: 0px;

@@ -161,3 +161,25 @@ select * from repple_recommend;
 drop sequence repple_present_seq;
 drop sequence repple_board_seq;
 drop sequence repple_recommend_seq;
+
+
+
+create table RSmember (
+	id varchar2(50) primary key,
+	password varchar2(16) not null,
+	name varchar2(10) not null,
+	birth varchar2(10) not null,
+	postcode varchar2(100) not null,
+	address varchar2(300) not null,
+	address2 varchar2(300) not null,
+	tel varchar2(15) not null,
+	email varchar2(50) not null,
+	gender varchar2(10),
+	genre varchar2(15),
+	Rdate date default sysdate	
+);
+
+select * from RSmember;
+
+
+

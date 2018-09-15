@@ -26,37 +26,44 @@
 
     <!--Contents -->
 
-		<div class="swiper-container" style="margin-top: 50px;">
-			<div class="title-showing">현재상영작</div>
-			<div class="swiper-wrapper">
-				<c:forEach items="${movielist}" var="dto">
-					<div class="swiper-slide">
-					<div class="cover">
-						<!-- 리스트만큼 영화 포스터를 반복한다. -->
-							<a href="MImovieview?bNum=${dto.bNum}"><img class="main-imgbox" src="<c:url value='/upload_test/${dto.safeFile.substring(15)}'/>"> </a>
-					</div>
-						<div class="info-title">
-							<a class="movie-linkbox" href="MImovieview?bNum=${dto.bNum}">${dto.bTitle}</a>
-						</div>
-						<div class="info-statebox">${dto.bRelease}</div>
-						<div class="info-hit">조회수 : ${dto.bHit}</div>
-					</div>
-				</c:forEach>
-			</div>
-			<div class="swiper-pagination"></div>
-		</div>
+		<div class="swiper-container">
+         <div class="title-showing">현재상영작</div>
+         <div class="swiper-wrapper">
+            <c:forEach items="${movielist}" var="dto">
+               <div class="swiper-slide">
+               <div class="infor-img">
+               <div class="cover">
+                  <a href="#">예매하기</a>
+                  <a href="MImovieview?bNum=${dto.bNum}">상세내용</a>
+               </div>
+                  <!-- 리스트만큼 영화 포스터를 반복한다. -->
+                    <img class="main-imgbox" src="<c:url value='/upload_test/${dto.safeFile.substring(15)}'/>"> 
+               </div>
+                  <div class="info-title">
+                     <a class="movie-linkbox" href="MImovieview?bNum=${dto.bNum}">${dto.bTitle}</a>
+                  </div>
+                  <div class="info-statebox">${dto.bRelease}</div>
+                  <div class="info-hit">조회수 : ${dto.bHit}</div>
+               </div>
+            </c:forEach>
+         </div>
+         <div class="swiper-pagination"></div>
+      </div>
 
 		<div id="contents">
       <div class="container">
-		<div class="write">
-		<a class="fas fa-edit" href="MIwriter1_view"></a>
-		</div>
+      <div class="write">
+      <a class="fas fa-edit" href="MIwriter1_view"></a>
+      </div>
         <div class="title-independent">독립 영화</div>
         <div class="main-list2">
-		<c:forEach items="${idcmovielist}" var="dto">
+      <c:forEach items="${idcmovielist}" var="dto">
           <div class="info-list">
-            <div class="movie_img">
-              <a href="MIidcmovieview?dNum=${dto.dNum}"><img class="main-img" src="<c:url value='/upload_test/${dto.safeFile.substring(15)}'/>"></a>
+            <div class="idc-infor-img">
+            <div class="idc-cover">
+              <a href="MIidcmovieview?dNum=${dto.dNum}">상세내용</a>
+            </div>
+            <img class="main-img" src="<c:url value='/upload_test/${dto.safeFile.substring(15)}'/>">
             </div>
             <div class="info-title">
               <a class="movie-link" href="MIidcmovieview?dNum=${dto.dNum}">${dto.dTitle}</a>
@@ -65,7 +72,7 @@
               ${dto.dRelease}
             </div>
             <div class="info-hit">
-         		   조회수 : 
+                  조회수 : 
               ${dto.dHit}
             </div>
           </div>
@@ -73,7 +80,7 @@
           </div>
           <div class="idcwrite">
           <a class="fas fa-edit" href="MIidcwriter1_view"></a>
-          </div>
+
           
 
 

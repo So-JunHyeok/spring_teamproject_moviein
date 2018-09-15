@@ -40,7 +40,7 @@
         <div class="movieweekly">
           <div class="movieweekly-img-area">
             <div class="title">
-              <h2 class="ti3">W E E K L Y M O V E</h2>
+              <h2 class="ti3">W E E K L Y M O V I E</h2>
               <h4 class="ti4">comcept</h4>
             </div>
             <div class="movieweekly-top5-area">
@@ -166,7 +166,7 @@
             <div class="book-title1">
               <br>
               <em>MOVIE INSIDE</em>
-              <c:forEach items="${IDC_P_list}" var="dto">
+              <c:forEach items="${DAI_rec_list}" var="dto">
               <ul>
               <li>
                 <a href="recommend_view?dAI_Id=${dto.dAI_Id}">- ${dto.dAI_Title}</a>
@@ -191,24 +191,27 @@
 
         <div class="independent-film-book">
           <div class="independent-book-title">
-            <div class="book-title1">
-              <br>
-              <em>MOVIE INSIDE</em>
-              <ul>
-              <li>
-                <a href="#">- 잠들지 못하던 어느 밤</a>
-              </li>
-              </ul>
-            </div>
-          </div>
-          <div class="independent-book-title">
-            <div class="book-title1">
+           <div class="book-title1">
               <br>
               <em>MOVIE INSIDE</em>
               <h6>MOVIE INSIDE 추천<h6>
               <p>낯선 이의 친절함 뒤에 숨은 의도가 있다고 생각하는 것은,
                 이 세상에 순수한 호의가 흔치않기 때문일 것이다.
                 등장인물들이 각자의 상황에서 내릴 수 있는 최선의 판단과 선택이 뜻밖의 결과를 초래하는 아이러니를 짧은 스릴러로 표현하려 하였다.
+            </div>
+            
+          </div>
+          <div class="independent-book-title">
+           <div class="book-title1">
+              <br>
+              <em>MOVIE INSIDE</em>
+              <c:forEach items="${DAI_P_list}" var="dto">
+              <ul>
+              <li>
+                <a href="people_view?dAI_Id=${dto.dAI_Id}">- ${dto.dAI_Title}</a>
+              </li>
+              </ul>
+               </c:forEach>
             </div>
           </div>
           <div class="independent-book-title">
@@ -220,7 +223,51 @@
             <div class="book-title1">
               <br>
               <em>MOVIE INSIDE</em>
-              <strong>Interview</strong>
+              <strong>Actor Interview</strong>
+              <br>
+              <h6>#배우 #감독 #인터뷰 #과정</h6>
+              <p>by 소준혁</p>
+            </div>
+          </div>
+
+        </div>
+        
+         <div class="independent-film-book">
+          <div class="independent-book-title">
+                      <div class="book-title1">
+              <img src="resources/img/in11.jpg" alt="">
+            </div>
+          
+            
+          </div>
+          <div class="independent-book-title">
+           <div class="book-title1">
+              <br>
+              <em>MOVIE INSIDE</em>
+              <c:forEach items="${DAI_D_list}" var="dto">
+              <ul>
+              <li>
+                <a href="director_view?dAI_Id=${dto.dAI_Id}">- ${dto.dAI_Title}</a>
+              </li>
+              </ul>
+              </c:forEach>
+            </div>
+          </div>
+          <div class="independent-book-title">
+			 <div class="book-title1">
+              <br>
+              <em>MOVIE INSIDE</em>
+              <h6>MOVIE INSIDE 추천<h6>
+              <p>낯선 이의 친절함 뒤에 숨은 의도가 있다고 생각하는 것은,
+                이 세상에 순수한 호의가 흔치않기 때문일 것이다.
+                등장인물들이 각자의 상황에서 내릴 수 있는 최선의 판단과 선택이 뜻밖의 결과를 초래하는 아이러니를 짧은 스릴러로 표현하려 하였다.
+            </div>
+          </div>
+          <div class="independent-book-title">
+            <div class="book-title1">
+              <br>
+              <em>MOVIE INSIDE</em>
+              <strong>Direct Interview</strong>
               <br>
               <h6>#배우 #감독 #인터뷰 #과정</h6>
               <p>by 소준혁</p>
@@ -229,7 +276,8 @@
 
         </div>
 
-
+		
+		
 
 
 

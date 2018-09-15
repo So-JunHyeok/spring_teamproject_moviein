@@ -41,6 +41,51 @@ public ArrayList<DAI_Dto> RECmovielist5() {
 	}
 
 
+public ArrayList<DAI_Dto> DAI_P_movielist5() {
+	String query = "select * from(select dAI_Id, dAI_Date, dAI_Title, safeFile, RANK() OVER (order by dAI_Id desc ) as rk from DAI_people_board) where rk between 1 and 5";
+	return (ArrayList<DAI_Dto>)template.query(query, new BeanPropertyRowMapper<DAI_Dto>(DAI_Dto.class));
+	}
+
+
+public ArrayList<DAI_Dto> DAI_D_movielist5() {
+	String query = "select * from(select dAI_Id, dAI_Date, dAI_Title, safeFile, RANK() OVER (order by dAI_Id desc ) as rk from DAI_director_board) where rk between 1 and 5";
+	return (ArrayList<DAI_Dto>)template.query(query, new BeanPropertyRowMapper<DAI_Dto>(DAI_Dto.class));
+	}
+
+
+
+
+
+public ArrayList<MIidcDto> IDCsearch(String search) {
+	
+	String query = "select * from movie_introduction_board dTitle like '%"+search+"%'";
+	return (ArrayList<MIidcDto>)template.query(query, new BeanPropertyRowMapper<MIidcDto>(MIidcDto.class));
+	}
+
+
+public ArrayList<DAI_Dto> DAI_P_search(String search) {
+	
+	String query = "select * from DAI_people_board dAI_Title like '%"+search+"%'";
+	return (ArrayList<DAI_Dto>)template.query(query, new BeanPropertyRowMapper<DAI_Dto>(DAI_Dto.class));
+	}
+
+public ArrayList<DAI_Dto> DAI_D_search(String search) {
+	
+	String query = "select * from DAI_director_board dAI_Title like '%"+search+"%'";
+	return (ArrayList<DAI_Dto>)template.query(query, new BeanPropertyRowMapper<DAI_Dto>(DAI_Dto.class));
+	}
+
+public ArrayList<DAI_Dto> DAI_rec_search(String search) {
+	
+	String query = "select * from PM_recommend_board dAI_Title like '%"+search+"%'";
+	return (ArrayList<DAI_Dto>)template.query(query, new BeanPropertyRowMapper<DAI_Dto>(DAI_Dto.class));
+	}
+
+
+
+
+
+
 
 
 

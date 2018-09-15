@@ -21,7 +21,7 @@ public class Main_DAI_rec_list_Command implements Main_Command {
 		
 		ArrayList<DAI_Dto> dtos = dao.RECmovielist5();
 		
-		model.addAttribute("IDC_P_list", dtos);
+		model.addAttribute("DAI_rec_list", dtos);
 	}
 
 }

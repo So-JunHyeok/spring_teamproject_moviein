@@ -14,9 +14,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.javalec.teampro.Main.command.Main_Command;
+import com.javalec.teampro.Main.command.Main_DAI_D_list_Command;
+import com.javalec.teampro.Main.command.Main_DAI_P_list_Command;
 import com.javalec.teampro.Main.command.Main_DAI_rec_list_Command;
 import com.javalec.teampro.Main.command.Main_IDClist_Command;
 import com.javalec.teampro.Main.command.Main_Top5_Command;
+import com.javalec.teampro.Main.command.Search_IDC_list_Command;
 
 /**
  * Handles requests for the application home page.
@@ -48,7 +51,7 @@ public class HomeController {
 	}
 	
 	@RequestMapping("/Main")
-	public String recommend_list(Model model, HttpServletRequest request) {
+	public String Main_list(Model model, HttpServletRequest request) {
 		
 		model.addAttribute("request", request);
 		
@@ -58,9 +61,33 @@ public class HomeController {
 		macommand.execute(model);
 		macommand = new Main_DAI_rec_list_Command();
 		macommand.execute(model);
-
+		macommand = new Main_DAI_P_list_Command();
+		macommand.execute(model);
+		macommand = new Main_DAI_D_list_Command();
+		macommand.execute(model);
 		
 		return "Main";
+	}
+	
+	
+	@RequestMapping("/search")
+	public String search_list(Model model, HttpServletRequest request) {
+		
+		model.addAttribute("request", request);
+		
+		String searchNum = request.getParameter("searchNum");
+		String search = request.getParameter("search");
+		
+		if(searchNum == "1") {
+		macommand = new Search_IDC_list_Command();
+		macommand.execute(model);
+		
+		}
+		
+	
+		return "MI_search_list";
+	
+		
 	}
 	
 	

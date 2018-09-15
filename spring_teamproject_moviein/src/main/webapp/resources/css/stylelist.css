@@ -69,7 +69,7 @@
   height: 100%;
 }
 .main-imgbox {
-  width: 80%;/*이미지 크기 조절*/
+   width: 100%;
 }
 .info-title {
   font-size: 15px;
@@ -95,10 +95,47 @@
 	color: #000;
 }
 .cover {
+	position: absolute;
+	top: 0px;
+	left: 0px;
 	width: 100%;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.cover > a{
+	opacity: 0;
+	transition: all .4s ease;
+	color : #fff;
+	text-decoration: none;
+	border: 1px solid #fff;
+	padding: 10px 30px;
+	margin-top: 250px;
 }
 .cover:hover {
-	transition: all 0.3s ease;
+	width: 100%;
+	height: 100%;
+	transition: all .4s ease;
+	background-color: rgba(0,0,0,0.5);
+}
+.cover:hover > a{
+	opacity: 1;
+}
+.infor-img {
+	width: 80%;
+	position: relative;
+}
+.cover .cover-content {
+	position: absolute;
+    top: 160px;
+    left: 55px;
+}
+.cover .cover-content a:hover{
+    border: 1px solid #fff;
+    text-decoration: none;
+    color: #fff;
+    padding: 10px;
 }
 /* contents-area */
 
@@ -133,18 +170,66 @@
   float: left;
   width: 25%;
   margin-bottom: 15px;
-  height: 100%;
 }
-
+.container .main-list3 .info-list{
+  float: left;
+  width: 25%;
+}
+.container .main-list4 .info-list{
+  float: left;
+  width: 25%;
+}
 .container .main-list2 .info-list .main-img img{
   width: 90%;
   height: 100%;
   margin: 0 auto;
 }
-
-.main-img {
+.container .main-list3 .info-list .main-img img{
   width: 90%;
-  height: 310px;
+  height: 100%;
+  margin: 0 auto;
+}
+.container .main-list4 .info-list .main-img img{
+  width: 90%;
+  height: 100%;
+  margin: 0 auto;
+}
+.main-img {
+  width: 100%;
+  height: 100%;
+}
+.idc-infor-img {
+	width: 95%;
+    height: 330px;
+    position: relative;
+}
+.idc-cover {
+	width: 100%;
+	height: 100%;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.idc-cover:hover{
+	width: 100%;
+	height: 100%;
+	transition: all .4s ease;
+	background-color: rgba(0,0,0,0.5);
+}
+.idc-cover > a {
+	opacity: 0;
+    transition: all .4s ease;
+    color: #fff;
+    text-decoration: none;
+    border: 1px solid #fff;
+    padding: 5px 20px;
+    margin-top: 200px;
+}
+.idc-cover:hover > a {
+    opacity: 1;
 }
 .movie-link {
   text-decoration: none;
@@ -159,14 +244,7 @@
 .info-state {
   font-size: 10px;
   color: #bbbbbb;
-  
 }
-
-.movie_img{
-	
-	
-}
-
 .paging{
   text-align: center;
 }
@@ -190,11 +268,16 @@
 .content-pag {
   margin-bottom: 200px;
 }
-ul li a:hover, ul li a:focus {
+.content-pag .paging > ul li a:hover {
   color:#fff;
   border:1px solid #f40;
   background-color:#f40;
 }
+.content-pag .paging > ul li a:focus {
+  color:#fff;
+  border:1px solid #f40;
+  background-color:#f40;
+} 
 .write {
 	margin-top: 20px;
 	font-size: 20px;

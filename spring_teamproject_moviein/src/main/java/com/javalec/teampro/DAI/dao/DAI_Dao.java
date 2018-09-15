@@ -140,18 +140,18 @@ public class DAI_Dao {
 		});
 	}
 
-	public void requestupload3(final String dAI_Title, final String dAI_Content, final String dAI_Name, final String safeFile,final String safeFile2) {
+	public void requestupload3(final String dAI_Title, final String dAI_Content, final String dAI_Name, final String safeFile) {
 		template.update(new PreparedStatementCreator() {
 			
 			@Override
 			public PreparedStatement createPreparedStatement(Connection con) throws SQLException {
-				String sql ="insert into DAI_director_board (dAI_Id,dAI_Title, dAI_Content,dAI_Name,safeFile,safeFile2) values (DAI_director_board_seq.nextval, ?,?,?,?,?)";
+				String sql ="insert into DAI_director_board (dAI_Id,dAI_Title, dAI_Content,dAI_Name,safeFile) values (DAI_director_board_seq.nextval, ?,?,?,?)";
 				PreparedStatement pstmt = con.prepareStatement(sql);
 				pstmt.setString(1,dAI_Title);
 				pstmt.setString(2,dAI_Content);
 				pstmt.setString(3,dAI_Name);
 				pstmt.setString(4,safeFile);
-				pstmt.setString(5,safeFile2);
+
 				
 				return pstmt;
 			}
