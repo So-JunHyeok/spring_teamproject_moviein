@@ -89,6 +89,19 @@ create table DAI_director_board (
 	dAI_Hit number(10) default 0
 );
 
+
+	select rownum rnum, tdate, title, separate from(select dAI_Date as tdate,'배우인터뷰'as separate, dAI_Title as title  from DAI_people_board where dAI_Title like'%스%'  
+	union all select dDate as tdate, '영화소개'as separate, dTitle as title from movie_introduction_board where dTitle like '%스%' 
+	union all select dAI_Date as tdate, '감독인터뷰'as separate, dAI_Title as title from DAI_director_board where dAI_Title like'%스%') order by Tdate desc;
+	
+	
+	
+	select rownum rnum, dAI_Title,'배우인터뷰'as separate from DAI_people_board PRIMARY KEY(rnum, dAI_Title);
+	
+	
+	
+	
+
 /* 테이블 드롭 */
 drop table PM_recommend_board;
 drop table DAI_people_board;

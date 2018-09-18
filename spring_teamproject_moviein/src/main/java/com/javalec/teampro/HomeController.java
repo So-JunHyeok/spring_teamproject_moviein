@@ -1,6 +1,7 @@
 package com.javalec.teampro;
 
 import java.text.DateFormat;
+
 import java.util.Date;
 import java.util.Locale;
 
@@ -70,7 +71,7 @@ public class HomeController {
 	}
 	
 	
-	@RequestMapping("/search")
+	/*@RequestMapping("/search")
 	public String search_list(Model model, HttpServletRequest request) {
 		
 		model.addAttribute("request", request);
@@ -88,7 +89,7 @@ public class HomeController {
 		return "MI_search_list";
 	
 		
-	}
+	}*/
 	
 	
 	

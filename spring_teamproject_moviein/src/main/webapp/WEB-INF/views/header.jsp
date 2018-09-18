@@ -119,16 +119,16 @@ $(document).ready(function(){
               <div class="search-contents">
                 <form action="search">
                 <i class="fas fa-search"></i>
-                <input type="submit" value="검색">
+                <!--  <input type="submit" value="검색">-->
 				<input type="search" id="search" name="search" placeholder="Search..">
-				<select name="searchNum">
+				<!--  <select name="searchNum">
                 	<option value="1">독립영화</option>
                 	<option value="2">영화추천</option>
                 	<option value="3">인터뷰</option>
                 	<option value="4">극장</option>
                 	<option value="5">공지사항</option>
                 	
-                </select>
+                </select>-->
                 </form>
               </div>
             </div>
